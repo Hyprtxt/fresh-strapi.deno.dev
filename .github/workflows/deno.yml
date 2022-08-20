@@ -1,0 +1,54 @@
+# This workflow will install Deno then run Deno lint and test.
+# For more information see: https://github.com/denoland/setup-deno
+
+name: Deno Deploy & Test
+
+on:
+  push:
+    branches: ["main","test"]
+  pull_request:
+    branches: ["main","test"]
+
+permissions:
+  id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        # uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
+        with:
+          deno-version: v1.24.3
+      
+      - name: Cache Chrome
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/deno/deno_puppeteer
+          key: chrome-install-cache
+          restore-keys: chrome-install-cache
+        
+      - name: Install Chromium for Puppeteer
+        run: PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@14.1.1/install.ts
+
+      - name: Verify formatting
+        run: deno fmt --check
+
+      # - name: Run linter
+      #   run: deno lint
+
+      - name: Deploy to Deno Deploy - test-marionette.deno.dev
+        uses: denoland/deployctl@v1
+        with:
+          project: test-marionette # the name of the project on Deno Deploy
+          entrypoint: main.ts # the entrypoint to deploy
+          import-map: import_map.json # because fresh needs this
+
+      - name: Run tests
+        run: deno test -A --unstable
