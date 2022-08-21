@@ -1,8 +1,8 @@
 import { assertEquals } from "https://deno.land/std@0.148.0/testing/asserts.ts";
 import puppeteer from "https://deno.land/x/puppeteer@14.1.1/mod.ts";
 
-// const URL = "https://fresh-strapi.deno.dev";
-const URL = "http://localhost:8000";
+const URL = "https://fresh-strapi.deno.dev";
+// const URL = "http://localhost:8000";
 
 const headless = !Deno.env.get("PRODUCTION");
 
