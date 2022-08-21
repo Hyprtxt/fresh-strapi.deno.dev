@@ -61,11 +61,13 @@ export async function handler(req, ctx) {
     "/",
     "/login",
     "/logout",
+    "/account",
   ];
   let resp;
   if (
     withSession.includes(pathname) ||
-    pathname.startsWith("/api/")
+    pathname.startsWith("/api/") ||
+    pathname.startsWith("/account/")
   ) {
     ctx.API_URL = API_URL;
     ctx.DENO_ENV = DENO_ENV;

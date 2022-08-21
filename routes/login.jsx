@@ -26,7 +26,7 @@ export const handler = {
           const res = new Response(null, {
             status: 302,
             headers: new Headers({
-              location: new URL(req.url).origin + `/`,
+              location: new URL(req.url).origin + `/account`,
             }),
           });
           return res;
