@@ -10,7 +10,7 @@ export const handler = {
     const markdown = await Deno.readTextFile(`README.md`);
     const rootUrl = "https://github.com/Hyprtxt/marionette.deno.dev/blob/main";
     const readme = render(markdown, rootUrl);
-    return ctx.render({ CSS, readme, url: req.url });
+    return ctx.render({ ...ctx.state, CSS, readme, url: req.url });
   },
 };
 
@@ -39,6 +39,7 @@ export default function PageHome({ data }) {
         dangerouslySetInnerHTML={{ __html: readme }}
       >
       </main>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }

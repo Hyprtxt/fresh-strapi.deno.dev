@@ -43,10 +43,10 @@ jobs:
       # - name: Run linter
       #   run: deno lint
 
-      - name: Deploy to Deno Deploy - test-marionette.deno.dev
+      - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
         uses: denoland/deployctl@v1
         with:
-          project: test-marionette # the name of the project on Deno Deploy
+          project: fresh-strapi # the name of the project on Deno Deploy
           entrypoint: main.ts # the entrypoint to deploy
           import-map: import_map.json # because fresh needs this
 

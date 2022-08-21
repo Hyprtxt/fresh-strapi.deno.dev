@@ -16,11 +16,6 @@ Deno.test("The homepage should 200", async () => {
   assertEquals(response.status(), 200);
 });
 
-// Deno.test("The Homepage shold show a link to the product page", async () => {
-//   const exists = !! await page.$("#primary-navigation a.btn");
-//   assertEquals(exists, true);
-// })
-
 Deno.test("The jokes api should 200", async () => {
   const response = await page.goto(`${URL}/api/joke`, {
     waitUntil: "networkidle2",
