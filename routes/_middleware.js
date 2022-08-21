@@ -15,14 +15,14 @@ const store = await redis.connect({
 });
 
 const COOKIE_NAME = "uuid";
-const REDIS_KEY = (uuid) => `sesh-${uuid}`
+const REDIS_KEY = (uuid) => `sesh-${uuid}`;
 
 // Session Tracker
 const createSession = async () => {
   const session = {
     cart: [],
   };
-  session[COOKIE_NAME] = crypto.randomUUID()
+  session[COOKIE_NAME] = crypto.randomUUID();
   await store.set(REDIS_KEY(session[COOKIE_NAME]), JSON.stringify(session));
   await store.expire(session[COOKIE_NAME], 7 * 24 * 60 * 60);
   return session;
@@ -30,7 +30,7 @@ const createSession = async () => {
 
 const setupSession = async (req, ctx) => {
   const cookies = getCookies(req.headers);
-  let key = REDIS_KEY(cookies[COOKIE_NAME])
+  let key = REDIS_KEY(cookies[COOKIE_NAME]);
   if (key) {
     const session = await store.get(key);
     if (session) {
@@ -44,11 +44,14 @@ const setupSession = async (req, ctx) => {
   }
   if (!key) {
     const resp = await ctx.next();
-    setCookie(resp.headers, { name: COOKIE_NAME, value: ctx.state[COOKIE_NAME] });
-    ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME])
+    setCookie(resp.headers, {
+      name: COOKIE_NAME,
+      value: ctx.state[COOKIE_NAME],
+    });
+    ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME]);
     return resp;
   } else {
-    ctx.REDIS_KEY = key
+    ctx.REDIS_KEY = key;
     return await ctx.next();
   }
 };

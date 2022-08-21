@@ -10,7 +10,7 @@ export const handler = {
 
 export default function PageAccount({ data }) {
   const { url } = data;
-  console.log( url )
+  console.log(url);
   return (
     <div id="account" class={tw`p-4 mx-auto max-w-screen-md`}>
       <img

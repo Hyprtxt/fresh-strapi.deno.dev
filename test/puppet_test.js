@@ -46,7 +46,7 @@ Deno.test("The login page should 200", async () => {
 });
 
 Deno.test("The login page should allow login", async () => {
-  // const response = 
+  // const response =
   await page.goto(`${URL}/login`, {
     waitUntil: "networkidle2",
   });
