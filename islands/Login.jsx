@@ -6,7 +6,7 @@ import { tw } from "@twind";
 const LoginForm = (props) => {
   // const [count, setCount] = useState(props.start);
   return (
-    <form class={tw`mt-8 space-y-6`} action="/login" method="POST">
+    <form class={tw`space-y-6 mt-8`} action="/login" method="POST">
       {/* <input type="hidden" name="remember" value="true" /> */}
       <div class={tw`rounded-md shadow-sm -space-y-px`}>
         <div>

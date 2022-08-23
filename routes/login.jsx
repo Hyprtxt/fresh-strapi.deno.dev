@@ -37,14 +37,14 @@ export const handler = {
   },
 };
 
-export default function PageHome({ data }) {
+const PageLogin = ({ data }) => {
   const { error } = data;
   return (
     <Layout data={data}>
       <div
         class={tw`min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
       >
-        <div class={tw`max-w-md w-full space-y-8`}>
+        <div class={tw`max-w-md w-full`}>
           <div>
             <img
               class={tw`mx-auto h-12 w-auto`}
@@ -52,11 +52,11 @@ export default function PageHome({ data }) {
               alt="Workflow"
             />
             <h2
-              class={tw`mt-6 text-center text-3xl tracking-tight font-bold text-gray-900`}
+              class={tw`mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900`}
             >
               Sign in to your account
             </h2>
-            {error ? <p>{error.message}</p> : ""}
+            {error ? <p class={tw`text-red-500`}>{error.message}</p> : ""}
           </div>
           <Login />
         </div>
@@ -64,4 +64,6 @@ export default function PageHome({ data }) {
       </div>
     </Layout>
   );
-}
+};
+
+export default PageLogin;

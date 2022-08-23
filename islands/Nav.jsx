@@ -7,6 +7,8 @@ import { asset } from "$fresh/runtime.ts";
 const Nav = () => {
   const ref = useRef(window);
   const [navOpen, setNavOpen] = useState(false);
+  const LINK_STYLE =
+    "block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white";
   useEffect(() => {
     // const url = new URL(ref.current.location.href);
     let lastKnownWidth = 0;
@@ -59,7 +61,7 @@ const Nav = () => {
         </div>
         <div class={tw`block md:hidden`}>
           <button
-            class={tw`flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white`}
+            class={tw`flex items-center px-3 py-2 border rounded text-white hover:border-yellow-400 hover:bg-yellow-400 focus:outline-none`}
             onClick={() => {
               setNavOpen(!navOpen);
             }}
@@ -82,19 +84,19 @@ const Nav = () => {
               <div class={tw`text-sm md:flex-grow`}>
                 <a
                   href="/login"
-                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4`}
+                  class={tw`${LINK_STYLE} mr-4`}
                 >
                   Login
                 </a>
                 <a
                   href="/logout"
-                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4`}
+                  class={tw`${LINK_STYLE} mr-4`}
                 >
                   Logout
                 </a>
                 <a
                   href="/account"
-                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white`}
+                  class={tw`${LINK_STYLE}`}
                 >
                   Account
                 </a>
@@ -102,7 +104,7 @@ const Nav = () => {
               <div>
                 <a
                   href="/signup"
-                  class={tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-yellow-400 mt-4 md:mt-0`}
+                  class={tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0`}
                 >
                   Signup
                 </a>
