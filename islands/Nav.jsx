@@ -1,0 +1,117 @@
+/** @jsx h */
+import { h } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
+import { tw } from "@twind";
+import { asset } from "$fresh/runtime.ts";
+
+const Nav = () => {
+  const ref = useRef(window);
+  const [navOpen, setNavOpen] = useState(false);
+  useEffect(() => {
+    // const url = new URL(ref.current.location.href);
+    let lastKnownWidth = 0;
+    let ticking = false;
+    const doSomething = (width) => {
+      console.log(width);
+      if (width > 768) {
+        setNavOpen(true);
+      } else {
+        setNavOpen(false);
+      }
+    };
+    const onResize = (e) => {
+      lastKnownWidth = ref.current.innerWidth;
+      if (!ticking) {
+        ref.current.requestAnimationFrame(() => {
+          doSomething(lastKnownWidth);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    doSomething(ref.current.innerWidth);
+    ref.current.addEventListener("resize", onResize);
+    return () => {
+      ref.current.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  return (
+    <div class={tw`bg-yellow-500`}>
+      <nav
+        class={tw`flex items-center justify-between flex-wrap p-6 max-w-screen-md mx-auto`}
+      >
+        <div
+          class={tw`flex items-center flex-shrink-0 text-white mr-6`}
+        >
+          <a href="/">
+            <img
+              src={asset("/logo.svg")}
+              width={30}
+              alt="the fresh logo: a sliced lemon dripping with juice"
+            />
+          </a>
+          <a href="/">
+            <span class={tw`font-semibold text-xl tracking-tight`}>
+              Fresh Strapi
+            </span>
+          </a>
+        </div>
+        <div class={tw`block md:hidden`}>
+          <button
+            class={tw`flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white`}
+            onClick={() => {
+              setNavOpen(!navOpen);
+            }}
+          >
+            <svg
+              class={tw`fill-current h-3 w-3`}
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        {navOpen
+          ? (
+            <div
+              class={tw`w-full block flex-grow md:flex md:items-center md:w-auto`}
+            >
+              <div class={tw`text-sm md:flex-grow`}>
+                <a
+                  href="/login"
+                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4`}
+                >
+                  Login
+                </a>
+                <a
+                  href="/logout"
+                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4`}
+                >
+                  Logout
+                </a>
+                <a
+                  href="/account"
+                  class={tw`block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white`}
+                >
+                  Account
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/signup"
+                  class={tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-yellow-400 mt-4 md:mt-0`}
+                >
+                  Signup
+                </a>
+              </div>
+            </div>
+          )
+          : ""}
+      </nav>
+    </div>
+  );
+};
+export default Nav;

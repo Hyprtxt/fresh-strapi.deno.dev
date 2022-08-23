@@ -12,6 +12,7 @@ import * as $6 from "./routes/login.jsx";
 import * as $7 from "./routes/logout.jsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Login.jsx";
+import * as $$2 from "./islands/Nav.jsx";
 
 const manifest = {
   routes: {
@@ -27,6 +28,7 @@ const manifest = {
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/Login.jsx": $$1,
+    "./islands/Nav.jsx": $$2,
   },
   baseUrl: import.meta.url,
 };

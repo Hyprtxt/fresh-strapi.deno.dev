@@ -1,4 +1,14 @@
-# Marionette
+## Fresh Strapi
+
+Open source Fresh Example Project using Redis and Strapi.
+
+A [Fresh](https://fresh.deno.dev) project at https://fresh-strapi.deno.dev
+
+Install Redis on your Strapi server, or get Redis Cloud.
+
+## Marionette
+
+Thats what I called my testing setup.
 
 A [Fresh](https://fresh.deno.dev) project at https://marionette.deno.dev
 

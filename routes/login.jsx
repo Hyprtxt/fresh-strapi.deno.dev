@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import Login from "@/islands/Login.jsx";
+import { Layout } from "@/routes/index.jsx";
 
 export const handler = {
   GET: (req, ctx) => {
@@ -37,22 +38,30 @@ export const handler = {
 };
 
 export default function PageHome({ data }) {
-  const { CSS, readme } = data;
+  const { error } = data;
   return (
-    <div
-      class={tw`min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
-    >
-      <div class={tw`max-w-md w-full space-y-8`}>
-        <div>
-          <img class={tw`mx-auto h-12 w-auto`} src="/logo.svg" alt="Workflow" />
-          <h2
-            class={tw`mt-6 text-center text-3xl tracking-tight font-bold text-gray-900`}
-          >
-            Sign in to your account
-          </h2>
+    <Layout data={data}>
+      <div
+        class={tw`min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
+      >
+        <div class={tw`max-w-md w-full space-y-8`}>
+          <div>
+            <img
+              class={tw`mx-auto h-12 w-auto`}
+              src="/logo.svg"
+              alt="Workflow"
+            />
+            <h2
+              class={tw`mt-6 text-center text-3xl tracking-tight font-bold text-gray-900`}
+            >
+              Sign in to your account
+            </h2>
+            {error ? <p>{error.message}</p> : ""}
+          </div>
+          <Login />
         </div>
-        <Login />
+        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </div>
-    </div>
+    </Layout>
   );
 }
