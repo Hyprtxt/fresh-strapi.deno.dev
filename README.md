@@ -8,13 +8,15 @@ https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
 ## Configure it
 
-You'll need a strapi install, and a redis server. You can install redis on your Strapi server. You can also use this project with local strapi and redis.
+You'll need a strapi install, and a redis server. You can install redis on your
+Strapi server. You can also use this project with local strapi and redis.
 
 ```
 cp .env.example .env
 ```
 
-Then open [.env](./.env) and add your secrets. You can use the same process to add secrets on Deno Deploy
+Then open [.env](./.env.example) and add your secrets. You can use the same
+process to add secrets on Deno Deploy
 
 ## Puppeteer Testing
 
