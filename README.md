@@ -4,6 +4,8 @@ An open source Fresh Example Project using Redis and Strapi.
 
 https://fresh-strapi.deno.dev
 
+https://github.com/Hyprtxt/fresh-strapi.deno.dev
+
 ## Puppeteer Testing
 
 Puppeteer Testing integrated with Github Actions!
