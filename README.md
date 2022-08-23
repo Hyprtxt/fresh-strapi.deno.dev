@@ -26,7 +26,6 @@ right link)
 ## Github Actions
 
 Runs `deno fmt` and the Puppeteer tests on Github Actions using a Linux Host.
-Fork the project and push to main or test to try it out.
 
 .github/workflows/deno.yml
 
@@ -43,3 +42,8 @@ deno task start
 ```
 
 This will watch the project directory and restart as necessary.
+
+### Things to do
+
+- Add pages and forms for the forgot password flow
+- Add OAuth providers support
