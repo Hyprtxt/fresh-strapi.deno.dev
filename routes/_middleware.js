@@ -1,10 +1,14 @@
 // routes/_middleware.js
 import { cyan, green, yellow } from "$std/fmt/colors.ts";
 import { getCookies, setCookie } from "$std/http/cookie.ts";
-import { env } from "@/config.js";
+import {
+  API_URL,
+  DENO_ENV,
+  REDIS_HOST,
+  REDIS_PASS,
+  REDIS_PORT,
+} from "@/config.js";
 import * as redis from "redis";
-
-const { REDIS_PASS, REDIS_HOST, REDIS_PORT, API_URL, DENO_ENV } = env;
 
 const store = await redis.connect({
   password: REDIS_PASS,

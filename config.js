@@ -1,3 +1,13 @@
 // Load dotenv over Deno.env
 import { config } from "$std/dotenv/mod.ts";
-export const env = Object.assign(Deno.env.toObject(), await config());
+const env = Object.assign(Deno.env.toObject(), await config());
+
+export const {
+  API_URL,
+  DENO_ENV,
+  REDIS_HOST,
+  REDIS_PASS,
+  REDIS_PORT,
+} = env;
+
+export default env;

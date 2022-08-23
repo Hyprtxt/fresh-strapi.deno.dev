@@ -4,8 +4,7 @@ import { tw } from "@twind";
 import Nav from "@/islands/Nav.jsx";
 import { CSS, render } from "gfm";
 import { asset, Head } from "$fresh/runtime.ts";
-import { env } from "@/config.js";
-const { DENO_ENV } = env;
+import { DENO_ENV } from "@/config.js";
 
 export const handler = {
   GET: async (req, ctx) => {
