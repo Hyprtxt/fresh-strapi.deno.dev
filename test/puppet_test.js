@@ -1,6 +1,6 @@
 import { assertEquals } from "$std/testing/asserts.ts";
 import puppeteer from "puppeteer";
-import { DENO_ENV } from "@/config.js";
+import { DENO_ENV } from "@/utils/config.js";
 
 const URL = DENO_ENV === "development"
   ? "http://localhost:8000"

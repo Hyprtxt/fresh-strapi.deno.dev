@@ -7,7 +7,7 @@ import {
   REDIS_HOST,
   REDIS_PASS,
   REDIS_PORT,
-} from "@/config.js";
+} from "@/utils/config.js";
 import * as redis from "redis";
 
 const store = await redis.connect({
