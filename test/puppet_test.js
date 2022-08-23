@@ -1,10 +1,13 @@
-import { assertEquals } from "https://deno.land/std@0.148.0/testing/asserts.ts";
-import puppeteer from "https://deno.land/x/puppeteer@14.1.1/mod.ts";
+import { assertEquals } from "$std/testing/asserts.ts";
+import puppeteer from "puppeteer";
+import { env } from "@/config.js";
+const { DENO_ENV } = env;
 
-const URL = "https://fresh-strapi.deno.dev";
-// const URL = "http://localhost:8000";
+const URL = DENO_ENV === "development"
+  ? "http://localhost:8000"
+  : "https://fresh-strapi.deno.dev";
 
-const headless = !Deno.env.get("PRODUCTION");
+const headless = DENO_ENV === "development" ? false : true;
 
 const browser = await puppeteer.launch({ headless });
 
@@ -12,6 +15,13 @@ const page = await browser.newPage();
 
 Deno.test("The homepage should 200", async () => {
   const response = await page.goto(`${URL}`, {
+    waitUntil: "networkidle2",
+  });
+  assertEquals(response.status(), 200);
+});
+
+Deno.test("The signup should 200", async () => {
+  const response = await page.goto(`${URL}/signup`, {
     waitUntil: "networkidle2",
   });
   assertEquals(response.status(), 200);
@@ -45,6 +55,14 @@ Deno.test("The login page should 200", async () => {
   assertEquals(response.status(), 200);
 });
 
+Deno.test("The logout page should 200", async () => {
+  const response = await page.goto(`${URL}/logout`, {
+    waitUntil: "networkidle2",
+  });
+  // Why not 301?
+  assertEquals(response.status(), 200);
+});
+
 Deno.test("The login page should allow login", async () => {
   // const response =
   await page.goto(`${URL}/login`, {
@@ -73,7 +91,6 @@ Deno.test("The logout page should 200", async () => {
   const response = await page.goto(`${URL}/logout`, {
     waitUntil: "networkidle2",
   });
-  // Why not 301?
   assertEquals(response.status(), 200);
 });
 
