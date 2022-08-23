@@ -6,6 +6,16 @@ https://fresh-strapi.deno.dev
 
 https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
+## Configure it
+
+You'll need a strapi install, and a redis server. You can install redis on your Strapi server. You can also use this project with local strapi and redis.
+
+```
+cp .env.example .env
+```
+
+Then open [.env](./.env) and add your secrets. You can use the same process to add secrets on Deno Deploy
+
 ## Puppeteer Testing
 
 Puppeteer Testing integrated with Github Actions!
@@ -29,7 +39,7 @@ right link)
 
 Runs `deno fmt` and the Puppeteer tests on Github Actions using a Linux Host.
 
-.github/workflows/deno.yml
+[.github/workflows/deno.yml](.github/workflows/deno.yml)
 
 ### Things to do
 
