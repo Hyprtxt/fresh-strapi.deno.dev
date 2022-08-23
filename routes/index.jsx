@@ -4,8 +4,7 @@ import { tw } from "@twind";
 import Nav from "@/islands/Nav.jsx";
 import { CSS, render } from "gfm";
 import { asset, Head } from "$fresh/runtime.ts";
-import { config } from "$std/dotenv/mod.ts";
-const env = Object.assign(Deno.env.toObject(), await config());
+import { env } from "@/config.js";
 const { DENO_ENV } = env;
 
 export const handler = {

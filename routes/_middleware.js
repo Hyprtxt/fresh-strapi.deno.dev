@@ -1,11 +1,9 @@
 // routes/_middleware.js
 import { cyan, green, yellow } from "$std/fmt/colors.ts";
 import { getCookies, setCookie } from "$std/http/cookie.ts";
-import { config } from "$std/dotenv/mod.ts";
+import { env } from "@/config.js";
 import * as redis from "redis";
 
-// Load dotenv over Deno.env
-const env = Object.assign(Deno.env.toObject(), await config());
 const { REDIS_PASS, REDIS_HOST, REDIS_PORT, API_URL, DENO_ENV } = env;
 
 const store = await redis.connect({

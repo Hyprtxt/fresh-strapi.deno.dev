@@ -1,19 +1,12 @@
 ## Fresh Strapi
 
-Open source Fresh Example Project using Redis and Strapi.
+An open source Fresh Example Project using Redis and Strapi.
 
-A [Fresh](https://fresh.deno.dev) project at https://fresh-strapi.deno.dev
+https://fresh-strapi.deno.dev
 
-Install Redis on your Strapi server, or get Redis Cloud.
+## Puppeteer Testing
 
-## Marionette
-
-Thats what I called my testing setup.
-
-A [Fresh](https://fresh.deno.dev) project at https://marionette.deno.dev
-
-This is intereting because it has Puppeteer Testing integrated with Github
-Actions!
+Puppeteer Testing integrated with Github Actions!
 
 Try:
 
@@ -21,7 +14,7 @@ Try:
 deno test -A
 ```
 
-But you need to install chrome with this first:
+But you'll need to install chrome with this first:
 
 ```
 PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@14.1.1/install.ts
