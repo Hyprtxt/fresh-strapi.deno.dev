@@ -48,10 +48,10 @@ const SignupForm = (props) => {
       <div class={tw`flex items-center justify-between`}>
         <div class={tw`text-sm`}>
           <a
-            href="#"
+            href="/login"
             class={tw`font-medium text-yellow-400 hover:text-yellow-300`}
           >
-            Forgot your password?
+            Login instead
           </a>
         </div>
       </div>
@@ -76,7 +76,7 @@ const SignupForm = (props) => {
               />
             </svg>
           </span>
-          Sign in
+          Create my Account
         </button>
       </div>
     </form>

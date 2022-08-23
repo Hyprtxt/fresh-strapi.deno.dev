@@ -8,6 +8,13 @@ export const handler = {
       delete state.jwt;
       await ctx.store.set(ctx.REDIS_KEY, JSON.stringify(state));
       ctx.state.error = { message: "Successfully logged out" };
+    } else {
+      return new Response(null, {
+        status: 302,
+        headers: new Headers({
+          location: new URL(req.url).origin + `/login`,
+        }),
+      });
     }
     return await ctx.render({
       ...ctx.state,
