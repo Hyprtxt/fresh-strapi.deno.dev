@@ -10,9 +10,11 @@ import * as $4 from "./routes/api/joke.ts";
 import * as $5 from "./routes/index.jsx";
 import * as $6 from "./routes/login.jsx";
 import * as $7 from "./routes/logout.jsx";
+import * as $8 from "./routes/signup.jsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Login.jsx";
 import * as $$2 from "./islands/Nav.jsx";
+import * as $$3 from "./islands/Signup.jsx";
 
 const manifest = {
   routes: {
@@ -24,11 +26,13 @@ const manifest = {
     "./routes/index.jsx": $5,
     "./routes/login.jsx": $6,
     "./routes/logout.jsx": $7,
+    "./routes/signup.jsx": $8,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/Login.jsx": $$1,
     "./islands/Nav.jsx": $$2,
+    "./islands/Signup.jsx": $$3,
   },
   baseUrl: import.meta.url,
 };

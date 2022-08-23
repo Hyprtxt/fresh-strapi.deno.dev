@@ -3,21 +3,32 @@ import { h } from "preact";
 // import { useState } from "preact/hooks";
 import { tw } from "@twind";
 
-const LoginForm = (props) => {
+const SignupForm = (props) => {
   // const [count, setCount] = useState(props.start);
   return (
-    <form class={tw`space-y-6 mt-8`} action="/login" method="POST">
+    <form class={tw`space-y-6 mt-8`} action="/signup" method="POST">
       {/* <input type="hidden" name="remember" value="true" /> */}
       <div class={tw`rounded-md shadow-sm -space-y-px`}>
         <div>
-          <label for="identifier" class={tw`sr-only`}>Username</label>
+          <label for="username" class={tw`sr-only`}>Username</label>
           <input
-            id="identifier"
-            name="identifier"
+            id="username"
+            name="username"
             type="text"
             required
             class={tw`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm`}
             placeholder="Username"
+          />
+        </div>
+        <div>
+          <label for="email" class={tw`sr-only`}>Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class={tw`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm`}
+            placeholder="Email address"
           />
         </div>
         <div>
@@ -72,4 +83,4 @@ const LoginForm = (props) => {
   );
 };
 
-export default LoginForm;
+export default SignupForm;

@@ -63,6 +63,7 @@ export async function handler(req, ctx) {
   const withSession = [
     "/",
     "/login",
+    "/signup",
     "/logout",
     "/account",
   ];

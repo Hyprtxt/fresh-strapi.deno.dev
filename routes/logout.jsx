@@ -1,24 +1,19 @@
+import PageLogin from "@/routes/login.jsx";
+
 export const handler = {
   async GET(req, ctx) {
-    if (ctx.state?.user?.id) {
+    if (ctx.state.user) {
       const state = ctx.state;
       delete state.user;
       delete state.jwt;
       await ctx.store.set(ctx.REDIS_KEY, JSON.stringify(state));
-      return new Response(null, {
-        status: 302,
-        headers: new Headers({
-          location: new URL(req.url).origin + `/`,
-        }),
-      });
-    } else {
-      // They were not logged in?
-      return new Response(null, {
-        headers: {
-          "Location": "/login",
-        },
-        status: 302,
-      });
+      ctx.state.error = { message: "Successfully logged out" };
     }
+    return await ctx.render({
+      ...ctx.state,
+      url: new URL(req.url),
+    });
   },
 };
+
+export default PageLogin;

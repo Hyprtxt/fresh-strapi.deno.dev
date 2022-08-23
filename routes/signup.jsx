@@ -1,17 +1,19 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import Login from "@/islands/Login.jsx";
+import Signup from "@/islands/Signup.jsx";
 import { Layout } from "@/routes/index.jsx";
 
 export const handler = {
   GET: (req, ctx) => {
-    return ctx.render({ ...ctx.state, url: req.url });
+    return ctx.render({ url: req.url });
   },
   POST: async (req, ctx) => {
-    const login = await fetch(`${ctx.API_URL}/auth/local`, {
+    const body = await req.formData();
+    console.log(body);
+    const login = await fetch(`${ctx.API_URL}/auth/local/register`, {
       method: "POST",
-      body: await req.formData(),
+      body,
     }).then(async (res) => await res.json());
     console.log(login);
     // Redirect if we got a login success, else render the form with an error
@@ -37,7 +39,7 @@ export const handler = {
   },
 };
 
-const PageLogin = ({ data }) => {
+const PageSignup = ({ data }) => {
   const { error } = data;
   return (
     <Layout data={data}>
@@ -54,11 +56,11 @@ const PageLogin = ({ data }) => {
             <h2
               class={tw`mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900`}
             >
-              Sign in to your account
+              Create an account
             </h2>
             {error ? <p class={tw`text-red-500`}>{error.message}</p> : ""}
           </div>
-          <Login />
+          <Signup />
         </div>
         {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </div>
@@ -66,4 +68,4 @@ const PageLogin = ({ data }) => {
   );
 };
 
-export default PageLogin;
+export default PageSignup;
