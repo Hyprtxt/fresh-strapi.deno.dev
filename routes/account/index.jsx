@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Layout } from "@/routes/index.jsx";
-import PageLogin from "@/routes/login.jsx";
+import PageLogin from "@/routes/login/index.jsx";
 
 export const handler = {
   GET: async (req, ctx) => {

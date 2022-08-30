@@ -1,4 +1,4 @@
-import PageLogin from "@/routes/login.jsx";
+import PageLogin from "@/routes/login/index.jsx";
 
 export const handler = {
   async GET(req, ctx) {

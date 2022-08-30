@@ -6,11 +6,13 @@ import * as $0 from "./routes/_404.jsx";
 import * as $1 from "./routes/_middleware.js";
 import * as $2 from "./routes/account/_middleware.js";
 import * as $3 from "./routes/account/index.jsx";
-import * as $4 from "./routes/api/joke.ts";
-import * as $5 from "./routes/index.jsx";
-import * as $6 from "./routes/login.jsx";
-import * as $7 from "./routes/logout.jsx";
-import * as $8 from "./routes/signup.jsx";
+import * as $4 from "./routes/api/[provider]/auth.js";
+import * as $5 from "./routes/api/joke.ts";
+import * as $6 from "./routes/index.jsx";
+import * as $7 from "./routes/login/github.js";
+import * as $8 from "./routes/login/index.jsx";
+import * as $9 from "./routes/logout.jsx";
+import * as $10 from "./routes/signup.jsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Login.jsx";
 import * as $$2 from "./islands/Nav.jsx";
@@ -22,11 +24,13 @@ const manifest = {
     "./routes/_middleware.js": $1,
     "./routes/account/_middleware.js": $2,
     "./routes/account/index.jsx": $3,
-    "./routes/api/joke.ts": $4,
-    "./routes/index.jsx": $5,
-    "./routes/login.jsx": $6,
-    "./routes/logout.jsx": $7,
-    "./routes/signup.jsx": $8,
+    "./routes/api/[provider]/auth.js": $4,
+    "./routes/api/joke.ts": $5,
+    "./routes/index.jsx": $6,
+    "./routes/login/github.js": $7,
+    "./routes/login/index.jsx": $8,
+    "./routes/logout.jsx": $9,
+    "./routes/signup.jsx": $10,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

@@ -72,6 +72,7 @@ export async function handler(req, ctx) {
   let resp;
   if (
     withSession.includes(pathname) ||
+    pathname.startsWith("/login/") ||
     pathname.startsWith("/api/") ||
     pathname.startsWith("/account/")
   ) {
