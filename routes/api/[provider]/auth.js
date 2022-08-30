@@ -9,11 +9,14 @@ export const handler = {
     const login = await fetch(
       `${ctx.API_URL}/auth/${provider}/callback${url.search}`,
     ).then(async (res) => {
+      const body = await res.json();
+      console.log(body, "yep");
       if (res.status !== 200) {
         return { unauthorized: true };
       }
-      return await res.json();
+      return body;
     });
+    console.log("oauth login", login);
     const { user, jwt } = login;
     const state = Object.assign(ctx.state, { user, jwt });
     const payload = JSON.stringify(state);
