@@ -23,7 +23,7 @@ export const handler = {
 
 export default function PageAccount(props) {
   const { data } = props;
-  const { url, unauthorized } = data;
+  const { url, unauthorized, user } = data;
   // console.log(url);
   if (unauthorized) {
     return PageLogin(props);
@@ -39,6 +39,7 @@ export default function PageAccount(props) {
         <p class={tw`my-6`}>
           Welcome to the users only section of this website
         </p>
+        <pre>{JSON.stringify(user, null, 2 )}</pre>
       </div>
     </Layout>
   );

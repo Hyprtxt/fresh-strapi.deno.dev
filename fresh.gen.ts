@@ -9,7 +9,7 @@ import * as $3 from "./routes/account/index.jsx";
 import * as $4 from "./routes/api/[provider]/auth.js";
 import * as $5 from "./routes/api/joke.ts";
 import * as $6 from "./routes/index.jsx";
-import * as $7 from "./routes/login/github.js";
+import * as $7 from "./routes/login/[provider].js";
 import * as $8 from "./routes/login/index.jsx";
 import * as $9 from "./routes/logout.jsx";
 import * as $10 from "./routes/signup.jsx";
@@ -27,7 +27,7 @@ const manifest = {
     "./routes/api/[provider]/auth.js": $4,
     "./routes/api/joke.ts": $5,
     "./routes/index.jsx": $6,
-    "./routes/login/github.js": $7,
+    "./routes/login/[provider].js": $7,
     "./routes/login/index.jsx": $8,
     "./routes/logout.jsx": $9,
     "./routes/signup.jsx": $10,

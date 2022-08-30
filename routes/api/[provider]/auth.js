@@ -14,11 +14,6 @@ export const handler = {
       }
       return await res.json();
     });
-    console.log(login, "login");
-    if (login?.unauthorized) {
-      // this application is for employees only
-      return ctx.renderNotFound();
-    }
     const { user, jwt } = login;
     const state = Object.assign(ctx.state, { user, jwt });
     const payload = JSON.stringify(state);
