@@ -6,6 +6,8 @@ https://fresh-strapi.deno.dev
 
 https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+
 ## Configure it
 
 You'll need a strapi install, and a redis server. You can install redis on your
