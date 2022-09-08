@@ -25,7 +25,7 @@ const createSession = async () => {
   const session = {
     cart: [],
   };
-  session[COOKIE_NAME] = crypto.randomCOOKIE_VALUE();
+  session[COOKIE_NAME] = crypto.randomUUID();
   await store.set(REDIS_KEY(session[COOKIE_NAME]), JSON.stringify(session));
   await store.expire(REDIS_KEY(session[COOKIE_NAME]), 7 * 24 * 60 * 60);
   return session;
