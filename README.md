@@ -62,4 +62,3 @@ This will watch the project directory and restart as necessary.
 ### Things to do
 
 - Add pages and forms for the forgot password flow
-- Add OAuth providers support
