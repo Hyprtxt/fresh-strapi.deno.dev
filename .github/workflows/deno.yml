@@ -61,9 +61,9 @@ jobs:
       - name: Run tests
         run: deno test -A
 
-      - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
-        uses: denoland/deployctl@v1
-        with:
-          project: fresh-strapi # the name of the project on Deno Deploy
-          entrypoint: main.ts # the entrypoint to deploy
-          import-map: import_map.json # because fresh needs this
+      # - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
+      #   uses: denoland/deployctl@v1
+      #   with:
+      #     project: fresh-strapi # the name of the project on Deno Deploy
+      #     entrypoint: main.ts # the entrypoint to deploy
+      #     import-map: import_map.json # because fresh needs this
