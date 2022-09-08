@@ -38,9 +38,7 @@ const PageLogin = ({ data }) => {
   const { error } = data;
   return (
     <Layout data={data}>
-      <div
-        class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
-      >
+      <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full">
           <div>
             <img
@@ -48,9 +46,7 @@ const PageLogin = ({ data }) => {
               src="/logo.svg"
               alt="Workflow"
             />
-            <h2
-              class="mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900"
-            >
+            <h2 class="mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900">
               Sign in to your account
             </h2>
             {error ? <p class="text-red-500">{error.message}</p> : ""}

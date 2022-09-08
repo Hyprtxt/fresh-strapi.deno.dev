@@ -38,12 +38,8 @@ const Nav = () => {
 
   return (
     <div class="bg-yellow-500">
-      <nav
-        class="flex items-center justify-between flex-wrap p-6 max-w-screen-md mx-auto"
-      >
-        <div
-          class="flex items-center flex-shrink-0 text-white mr-6"
-        >
+      <nav class="flex items-center justify-between flex-wrap p-6 max-w-screen-md mx-auto">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
           <a href="/">
             <img
               src={asset("/logo.svg")}
@@ -76,9 +72,7 @@ const Nav = () => {
         </div>
         {navOpen
           ? (
-            <div
-              class="w-full block flex-grow md:flex md:items-center md:w-auto"
-            >
+            <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div class="text-sm md:flex-grow">
                 <a
                   href="/login"
