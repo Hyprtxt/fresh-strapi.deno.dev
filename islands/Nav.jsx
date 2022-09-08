@@ -5,8 +5,12 @@ import { asset } from "$fresh/runtime.ts";
 const Nav = () => {
   const ref = useRef(window);
   const [navOpen, setNavOpen] = useState(false);
-  const LINK_STYLE =
-    "block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white";
+  const LINK_STYLE = tw`block mt-4 md:inline-block md:mt-0 hover:text-white`;
+  const NAV_STYLE =
+    tw`w-full block flex-grow md:flex md:items-center md:w-auto`;
+  const NAV_LINKS_STYLE = tw`text-sm md:flex-grow`;
+  const BUTTON_STYLE =
+    tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0`;
   useEffect(() => {
     // const url = new URL(ref.current.location.href);
     let lastKnownWidth = 0;
@@ -72,8 +76,10 @@ const Nav = () => {
         </div>
         {navOpen
           ? (
-            <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
-              <div class="text-sm md:flex-grow">
+            <div
+              class={NAV_STYLE}
+            >
+              <div class={NAV_LINKS_STYLE}>
                 <a
                   href="/login"
                   class={tw`${LINK_STYLE} mr-4`}
@@ -96,7 +102,7 @@ const Nav = () => {
               <div>
                 <a
                   href="/signup"
-                  class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0"
+                  class={BUTTON_STYLE}
                 >
                   Signup
                 </a>

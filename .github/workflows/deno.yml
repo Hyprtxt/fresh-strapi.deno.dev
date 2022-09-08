@@ -53,12 +53,12 @@ jobs:
       - name: Install Chromium for Puppeteer
         run: PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@16.2.0/install.ts
 
-      # - name: Run tests
-      #   run: deno test -A
+      - name: Run tests
+        run: deno test -A
 
-      # - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
-      #   uses: denoland/deployctl@v1
-      #   with:
-      #     project: fresh-strapi # the name of the project on Deno Deploy
-      #     entrypoint: main.ts # the entrypoint to deploy
-      #     import-map: import_map.json # because fresh needs this
+      - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
+        uses: denoland/deployctl@v1
+        with:
+          project: fresh-strapi # the name of the project on Deno Deploy
+          entrypoint: main.ts # the entrypoint to deploy
+          import-map: import_map.json # because fresh needs this
