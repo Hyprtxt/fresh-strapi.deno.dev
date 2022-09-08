@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import Signup from "@/islands/Signup.jsx";
 import { Layout } from "@/routes/index.jsx";
 import { LoginOAuth } from "@/routes/login/index.jsx";
@@ -16,7 +13,6 @@ export const handler = {
       method: "POST",
       body,
     }).then(async (res) => await res.json());
-    console.log(login);
     // Redirect if we got a login success, else render the form with an error
     if (login.error) {
       return ctx.render({ ...ctx.state, error: login.error, url: req.url });
@@ -45,21 +41,21 @@ const PageSignup = ({ data }) => {
   return (
     <Layout data={data}>
       <div
-        class={tw`min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
+        class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
       >
-        <div class={tw`max-w-md w-full`}>
+        <div class="max-w-md w-full">
           <div>
             <img
-              class={tw`mx-auto h-12 w-auto`}
+              class="mx-auto h-12 w-auto"
               src="/logo.svg"
               alt="Workflow"
             />
             <h2
-              class={tw`mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900`}
+              class="mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900"
             >
               Create an account
             </h2>
-            {error ? <p class={tw`text-red-500`}>{error.message}</p> : ""}
+            {error ? <p class="text-red-500">{error.message}</p> : ""}
           </div>
           <Signup />
           <LoginOAuth provider="github">Signup with Github</LoginOAuth>

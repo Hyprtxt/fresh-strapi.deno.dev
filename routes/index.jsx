@@ -1,6 +1,3 @@
-/** @jsx h */
-import { Fragment, h } from "preact";
-import { tw } from "@twind";
 import Nav from "@/islands/Nav.jsx";
 import { CSS, render } from "gfm";
 import { asset, Head } from "$fresh/runtime.ts";
@@ -20,7 +17,7 @@ export default function PageHome({ data }) {
   const { CSS, readme } = data;
   return (
     <Layout data={data}>
-      <div class={tw`p-4 mx-auto max-w-screen-md`}>
+      <div class="p-4 mx-auto max-w-screen-md">
         <Head>
           <style>{CSS}</style>
         </Head>
@@ -44,12 +41,12 @@ export default function PageHome({ data }) {
 
 export const Layout = ({ children, data }) => {
   return (
-    <Fragment>
+    <>
       <Nav />
       {children}
       {DENO_ENV === "development"
         ? <pre>{JSON.stringify(data, null, 2)}</pre>
         : ""}
-    </Fragment>
+    </>
   );
 };

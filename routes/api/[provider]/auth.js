@@ -4,7 +4,7 @@ import { redirect } from "@/utils/mod.js";
 export const handler = {
   GET: async (req, ctx) => {
     const provider = ctx.params.provider;
-    console.log(provider, "auth.js");
+    // console.log(provider, "auth.js");
     const url = new URL(req.url);
     const login = await fetch(
       `${ctx.API_URL}/auth/${provider}/callback${url.search}`,
@@ -16,7 +16,7 @@ export const handler = {
       }
       return body;
     });
-    console.log("oauth login", login);
+    // console.log("oauth login", login);
     const { user, jwt } = login;
     const state = Object.assign(ctx.state, { user, jwt });
     const payload = JSON.stringify(state);

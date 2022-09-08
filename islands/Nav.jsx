@@ -1,7 +1,5 @@
-/** @jsx h */
-import { h } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { tw } from "@twind";
+import { tw } from "twind";
 import { asset } from "$fresh/runtime.ts";
 
 const Nav = () => {
@@ -39,12 +37,12 @@ const Nav = () => {
   }, []);
 
   return (
-    <div class={tw`bg-yellow-500`}>
+    <div class="bg-yellow-500">
       <nav
-        class={tw`flex items-center justify-between flex-wrap p-6 max-w-screen-md mx-auto`}
+        class="flex items-center justify-between flex-wrap p-6 max-w-screen-md mx-auto"
       >
         <div
-          class={tw`flex items-center flex-shrink-0 text-white mr-6`}
+          class="flex items-center flex-shrink-0 text-white mr-6"
         >
           <a href="/">
             <img
@@ -54,20 +52,20 @@ const Nav = () => {
             />
           </a>
           <a href="/">
-            <span class={tw`font-semibold text-xl tracking-tight`}>
+            <span class="font-semibold text-xl tracking-tight">
               Fresh Strapi
             </span>
           </a>
         </div>
-        <div class={tw`block md:hidden`}>
+        <div class="block md:hidden">
           <button
-            class={tw`flex items-center px-3 py-2 border rounded text-white hover:border-yellow-400 hover:bg-yellow-400 focus:outline-none`}
+            class="flex items-center px-3 py-2 border rounded text-white hover:border-yellow-400 hover:bg-yellow-400 focus:outline-none"
             onClick={() => {
               setNavOpen(!navOpen);
             }}
           >
             <svg
-              class={tw`fill-current h-3 w-3`}
+              class="fill-current h-3 w-3"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -79,9 +77,9 @@ const Nav = () => {
         {navOpen
           ? (
             <div
-              class={tw`w-full block flex-grow md:flex md:items-center md:w-auto`}
+              class="w-full block flex-grow md:flex md:items-center md:w-auto"
             >
-              <div class={tw`text-sm md:flex-grow`}>
+              <div class="text-sm md:flex-grow">
                 <a
                   href="/login"
                   class={tw`${LINK_STYLE} mr-4`}
@@ -104,7 +102,7 @@ const Nav = () => {
               <div>
                 <a
                   href="/signup"
-                  class={tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0`}
+                  class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0"
                 >
                   Signup
                 </a>

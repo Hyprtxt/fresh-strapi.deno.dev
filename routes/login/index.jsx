@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import Login from "@/islands/Login.jsx";
 import { Layout } from "@/routes/index.jsx";
 
@@ -42,21 +39,21 @@ const PageLogin = ({ data }) => {
   return (
     <Layout data={data}>
       <div
-        class={tw`min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
+        class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
       >
-        <div class={tw`max-w-md w-full`}>
+        <div class="max-w-md w-full">
           <div>
             <img
-              class={tw`mx-auto h-12 w-auto`}
+              class="mx-auto h-12 w-auto"
               src="/logo.svg"
               alt="Workflow"
             />
             <h2
-              class={tw`mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900`}
+              class="mt-6 mb-8 text-center text-3xl tracking-tight font-bold text-gray-900"
             >
               Sign in to your account
             </h2>
-            {error ? <p class={tw`text-red-500`}>{error.message}</p> : ""}
+            {error ? <p class="text-red-500">{error.message}</p> : ""}
           </div>
           <Login />
           <LoginOAuth provider="github">Sign in with Github</LoginOAuth>
@@ -72,11 +69,11 @@ export const LoginOAuth = ({ provider, children }) => (
   <a
     href={`/login/${provider}`}
     id={`login-${provider}`}
-    class={tw`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 mt-3`}
+    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 mt-3"
   >
-    <span class={tw`absolute left-0 inset-y-0 flex items-center pl-3`}>
+    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
       <svg
-        class={tw`h-5 w-5 text-yellow-300 group-hover:text-yellow-400`}
+        class="h-5 w-5 text-yellow-300 group-hover:text-yellow-400"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
