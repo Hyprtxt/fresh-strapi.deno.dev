@@ -9,7 +9,7 @@ export const handler = {
     const rootUrl =
       "https://github.com/Hyprtxt/fresh-strapi.deno.dev/blob/main";
     const readme = render(markdown, rootUrl);
-    return ctx.render({ ...ctx.state, CSS, readme, url: req.url });
+    return ctx.render({ ...ctx.state, CSS, readme });
   },
 };
 

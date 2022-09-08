@@ -2,12 +2,12 @@
 import { redirect } from "@/utils/mod.js";
 
 export const handler = {
-  GET: async (req, ctx) => {
+  GET: async (_req, ctx) => {
     const provider = ctx.params.provider;
     // console.log(provider, "auth.js");
-    const url = new URL(req.url);
+    const { search } = ctx.state.url;
     const login = await fetch(
-      `${ctx.API_URL}/auth/${provider}/callback${url.search}`,
+      `${ctx.API_URL}/auth/${provider}/callback${search}`,
     ).then(async (res) => {
       const body = await res.json();
       console.log(body, "yep");
@@ -21,7 +21,7 @@ export const handler = {
     const state = Object.assign(ctx.state, { user, jwt });
     const payload = JSON.stringify(state);
     return await ctx.store.set(ctx.REDIS_KEY, payload).then(
-      () => redirect(url.origin + `/`),
+      () => redirect(ctx.BASE_URL + `/`),
     );
   },
 };

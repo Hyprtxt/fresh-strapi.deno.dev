@@ -1,7 +1,7 @@
 import PageLogin from "@/routes/login/index.jsx";
 
 export const handler = {
-  async GET(req, ctx) {
+  async GET(_req, ctx) {
     if (ctx.state.user) {
       const state = ctx.state;
       delete state.user;
@@ -12,13 +12,12 @@ export const handler = {
       return new Response(null, {
         status: 302,
         headers: new Headers({
-          location: new URL(req.url).origin + `/login`,
+          location: ctx.BASE_URL + `/login`,
         }),
       });
     }
     return await ctx.render({
       ...ctx.state,
-      url: new URL(req.url),
     });
   },
 };

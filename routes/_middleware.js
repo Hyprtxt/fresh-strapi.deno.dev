@@ -1,14 +1,15 @@
 // routes/_middleware.js
-import { cyan, green, yellow } from "$std/fmt/colors.ts";
+import { blue, cyan, green, magenta, red, yellow } from "$std/fmt/colors.ts";
 import { getCookies, setCookie } from "$std/http/cookie.ts";
+import * as redis from "redis";
 import {
   API_URL,
+  BASE_URL,
   DENO_ENV,
   REDIS_HOST,
   REDIS_PASS,
   REDIS_PORT,
 } from "@/utils/config.js";
-import * as redis from "redis";
 
 const store = await redis.connect({
   password: REDIS_PASS,
@@ -17,49 +18,57 @@ const store = await redis.connect({
 });
 
 const COOKIE_NAME = "uuid";
-const REDIS_KEY = (uuid) => `sesh-${uuid}`;
+const REDIS_KEY = (COOKIE_VALUE) => `sesh-${COOKIE_VALUE}`;
 
 // Session Tracker
 const createSession = async () => {
   const session = {
     cart: [],
   };
-  session[COOKIE_NAME] = crypto.randomUUID();
+  session[COOKIE_NAME] = crypto.randomCOOKIE_VALUE();
   await store.set(REDIS_KEY(session[COOKIE_NAME]), JSON.stringify(session));
-  await store.expire(session[COOKIE_NAME], 7 * 24 * 60 * 60);
+  await store.expire(REDIS_KEY(session[COOKIE_NAME]), 7 * 24 * 60 * 60);
   return session;
+};
+
+const setupNewSession = async (req, ctx) => {
+  ctx.state = await createSession();
+  ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME]);
+  setupState(req, ctx);
+  const resp = await ctx.next();
+  setCookie(resp.headers, {
+    name: COOKIE_NAME,
+    value: ctx.state[COOKIE_NAME],
+    path: "/",
+  });
+  return resp;
 };
 
 const setupSession = async (req, ctx) => {
   const cookies = getCookies(req.headers);
-  let key = REDIS_KEY(cookies[COOKIE_NAME]);
-  if (key) {
-    const session = await store.get(key);
+  if (cookies[COOKIE_NAME]) {
+    const session = await store.get(REDIS_KEY(cookies[COOKIE_NAME]));
     if (session) {
       ctx.state = JSON.parse(session);
+      ctx.REDIS_KEY = REDIS_KEY(cookies[COOKIE_NAME]);
     } else {
-      key = false;
-      ctx.state = await createSession();
+      return await setupNewSession(req, ctx);
     }
   } else {
-    ctx.state = await createSession();
+    return await setupNewSession(req, ctx);
   }
-  if (!key) {
-    const resp = await ctx.next();
-    setCookie(resp.headers, {
-      name: COOKIE_NAME,
-      value: ctx.state[COOKIE_NAME],
-    });
-    ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME]);
-    return resp;
-  } else {
-    ctx.REDIS_KEY = key;
-    return await ctx.next();
-  }
+  setupState(req, ctx);
+  return await ctx.next();
+};
+
+const setupState = (req, ctx) => {
+  // req.url.replace("http:", "https:");
+  const url = new URL(req.url);
+  ctx.state.url = url;
 };
 
 export async function handler(req, ctx) {
-  // Logging
+  // For Logging
   const start = Date.now();
   const { pathname } = new URL(req.url);
   const withSession = [
@@ -77,18 +86,31 @@ export async function handler(req, ctx) {
     pathname.startsWith("/account/")
   ) {
     ctx.API_URL = API_URL;
+    ctx.BASE_URL = BASE_URL;
     ctx.DENO_ENV = DENO_ENV;
     ctx.store = store;
     resp = await setupSession(req, ctx);
   } else {
     resp = await ctx.next();
   }
-  // Timing stuff - from oak
-  const ms = Date.now() - start;
+  const now = Date.now();
+  const ms = now - start;
+  const status = () => {
+    const str = resp.status.toString();
+    if (str[0] === "2") {
+      return green(str);
+    }
+    if (str[0] === "3") {
+      return yellow(str);
+    } else {
+      return red(str);
+    }
+  };
   resp.headers.set("X-Response-Time", `${ms}ms`);
-  // console.log( ms, req )
   console.log(
-    `${green(req.method)} ${cyan(pathname)} - ${yellow(String(ms) + "ms")}`,
+    `[${magenta(new Date(now).toISOString())}] ${blue(req.method)} ${
+      cyan(pathname)
+    } - ${blue(String(ms) + "ms")} - ${status()}`,
   );
   return resp;
 }

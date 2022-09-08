@@ -2,10 +2,9 @@ import { Layout } from "@/routes/index.jsx";
 import PageLogin from "@/routes/login/index.jsx";
 
 export const handler = {
-  GET: async (req, ctx) => {
+  GET: async (_req, ctx) => {
     const resp = await ctx.render({
       ...ctx.state,
-      url: new URL(req.url),
     });
     if (ctx.state.unauthorized) {
       return new Response(resp.body, {
@@ -20,8 +19,7 @@ export const handler = {
 
 export default function PageAccount(props) {
   const { data } = props;
-  const { url, unauthorized, user } = data;
-  // console.log(url);
+  const { unauthorized, user } = data;
   if (unauthorized) {
     return PageLogin(props);
   }

@@ -2,8 +2,8 @@ import Login from "@/islands/Login.jsx";
 import { Layout } from "@/routes/index.jsx";
 
 export const handler = {
-  GET: (req, ctx) => {
-    return ctx.render({ ...ctx.state, url: req.url });
+  GET: (_req, ctx) => {
+    return ctx.render({ ...ctx.state });
   },
   POST: async (req, ctx) => {
     const login = await fetch(`${ctx.API_URL}/auth/local`, {
@@ -13,7 +13,7 @@ export const handler = {
     console.log(login);
     // Redirect if we got a login success, else render the form with an error
     if (login.error) {
-      return ctx.render({ ...ctx.state, error: login.error, url: req.url });
+      return ctx.render({ ...ctx.state, error: login.error });
     } else {
       const { user, jwt } = login;
       // Put the login into the redis store
@@ -24,7 +24,7 @@ export const handler = {
           const res = new Response(null, {
             status: 302,
             headers: new Headers({
-              location: new URL(req.url).origin + `/account`,
+              location: ctx.BASE_URL + `/account`,
             }),
           });
           return res;
