@@ -16,7 +16,9 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      DENO_DIR: deno_dir
+      CHROMIUM_PATH: deno_dir/deno_puppeteer/chromium/
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
@@ -27,21 +29,32 @@ jobs:
         with:
           deno-version: v1.24.3
       
-      - name: Cache Chrome
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/deno/deno_puppeteer
-          key: chrome-install-cache
-          restore-keys: chrome-install-cache
-        
-      - name: Install Chromium for Puppeteer
-        run: PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@14.1.1/install.ts
-
       - name: Verify formatting
         run: deno fmt --check
 
       # - name: Run linter
       #   run: deno lint
+      
+      - name: Cache Deno dependencies
+        uses: actions/cache@v3
+        with:
+          # The Chrome install gets cached in here too...
+          # import_map.json as key doesnt always work, 
+          # if is not enough, we can add more files here.
+          key: denoDeps-${{ hashFiles('import_map.json') }}
+          path: ${{ env.DENO_DIR }}
+        
+      - name: Cache puppeteer
+        uses: actions/cache@v3
+        with:
+          key: puppeteer_${{ runner.os }}_v16_2_0
+          path: ${{ env.CHROMIUM_PATH }}
+
+      - name: Install Chromium for Puppeteer
+        run: PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@16.2.0/install.ts
+
+      - name: Run tests
+        run: deno test -A
 
       - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
         uses: denoland/deployctl@v1
@@ -49,6 +62,3 @@ jobs:
           project: fresh-strapi # the name of the project on Deno Deploy
           entrypoint: main.ts # the entrypoint to deploy
           import-map: import_map.json # because fresh needs this
-
-      - name: Run tests
-        run: deno test -A --unstable
