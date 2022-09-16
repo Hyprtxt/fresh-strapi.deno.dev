@@ -10,7 +10,7 @@ https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
 Like what you see? Please leave me a star!
 
-![Github Repo Stars](https://img.shields.io/github/stars/Hyprtxt/fresh-strapi.deno.dev?style=social)
+[![Github Repo Stars](https://img.shields.io/github/stars/Hyprtxt/fresh-strapi.deno.dev?style=social)](https://github.com/login?return_to=%2FHyprtxt%2Ffresh-strapi.deno.dev)
 
 ## Configure it
 
