@@ -8,6 +8,10 @@ https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
 [![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
 
+Like what you see? Please leave me a star!
+
+![Github Repo Stars](https://img.shields.io/github/stars/Hyprtxt/fresh-strapi.deno.dev?style=social)
+
 ## Configure it
 
 You'll need a strapi install, and a redis server. You can install redis on your
@@ -21,6 +25,8 @@ Then open [.env](./.env.example) and add your secrets. You can use the same
 process to add secrets on Deno Deploy
 
 ## Puppeteer Testing
+
+This project also has code to help you test your site. Using fetch for the API routes, puppetteer for end to end testing, and GitHub actions for CI. That's right:
 
 Puppeteer Testing integrated with Github Actions!
 
