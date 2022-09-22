@@ -26,7 +26,9 @@ process to add secrets on Deno Deploy
 
 ## Puppeteer Testing
 
-This project also has code to help you test your site. Using fetch for the API routes, puppetteer for end to end testing, and GitHub actions for CI. That's right:
+This project also has code to help you test your site. Using fetch for the API
+routes, puppetteer for end to end testing, and GitHub actions for CI. That's
+right:
 
 Puppeteer Testing integrated with Github Actions!
 

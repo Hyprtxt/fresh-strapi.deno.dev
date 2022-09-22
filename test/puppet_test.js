@@ -11,5 +11,24 @@ Deno.test(
       });
       assertEquals(response.status(), 200);
     });
+
+    await t.step("The login page should 200", async () => {
+      const response = await page.goto(`${BASE_URL}/login`, {
+        waitUntil: "networkidle2",
+      });
+      assertEquals(response.status(), 200);
+    });
+    await t.step("The logout page should 200", async () => {
+      const response = await page.goto(`${BASE_URL}/login`, {
+        waitUntil: "networkidle2",
+      });
+      assertEquals(response.status(), 200);
+    });
+    await t.step("The account page should 401", async () => {
+      const response = await page.goto(`${BASE_URL}/account`, {
+        waitUntil: "networkidle2",
+      });
+      assertEquals(response.status(), 401);
+    });
   }),
 );
