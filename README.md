@@ -6,7 +6,7 @@ https://fresh-strapi.deno.dev
 
 https://github.com/Hyprtxt/fresh-strapi.deno.dev
 
-[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+[![Made with Fresh](https://fresh-strapi.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
 
 Like what you see? Please leave me a star!
 
