@@ -55,6 +55,7 @@ const PageLogin = ({ data }) => {
           <LoginOAuth provider="github">Sign in with Github</LoginOAuth>
           <LoginOAuth provider="discord">Sign in with Discord</LoginOAuth>
           <LoginOAuth provider="facebook">Sign in with Facebook</LoginOAuth>
+          <LoginOAuth provider="google">Sign in with Google</LoginOAuth>
         </div>
         {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </div>
