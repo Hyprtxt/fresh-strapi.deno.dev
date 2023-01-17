@@ -57,6 +57,8 @@ Runs `deno fmt` and the Puppeteer tests on Github Actions using a Linux Host.
 
 Setup the tests so they launch the project, and test that version.
 
+Document how secrets are added to github (base64 encode trick)
+
 ## Fresh Usage
 
 Start the project:
