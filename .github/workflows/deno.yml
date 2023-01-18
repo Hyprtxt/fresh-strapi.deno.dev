@@ -29,10 +29,9 @@ jobs:
           ENV_GITHUB_ACTIONS: ${{ secrets.ENV_GITHUB_ACTIONS }}
 
       - name: Setup Deno
-        # uses: denoland/setup-deno@v1
-        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
+        uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.24.3
+          deno-version: v1.29.4
       
       - name: Verify formatting
         run: deno fmt --check
