@@ -43,9 +43,7 @@ jobs:
         uses: actions/cache@v3
         with:
           # The Chrome install gets cached in here too...
-          # import_map.json as key doesnt always work, 
-          # if is not enough, we can add more files here.
-          key: denoDeps-${{ hashFiles('import_map.json') }}
+          key: denoDeps-${{ hashFiles('deno.lock') }}
           path: ${{ env.DENO_DIR }}
         
       - name: Cache puppeteer
