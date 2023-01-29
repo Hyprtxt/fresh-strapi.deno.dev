@@ -63,7 +63,6 @@ base64 .env.github | pbcopy
 
 secret name should be `ENV_GITHUB_ACTIONS`
 
-
 ## Fresh Usage
 
 Start the project:
@@ -80,21 +79,32 @@ This will watch the project directory and restart as necessary.
 
 ## ~A Short~ History
 
-I really like Deno and I was using it in 2021 because I was learning things about the browser from it. I made my own system for serving websites and I called it gaslight. You can see it here: https://github.com/Hyprtxt/gaslight.dev.
+I really like Deno and I was using it in 2021 because I was learning things
+about the browser from it. I made my own system for serving websites and I
+called it gaslight. You can see it here:
+https://github.com/Hyprtxt/gaslight.dev.
 
-In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 3 websites and a Strapi instance professionally for https://andbounds.com. During development, Fresh was released (June 2022) and I migrated all 3 sites over to it. This website Fresh-Strapi, created with permission and blessing of ANDBOUNDS, is a cousin to those 3 sites. It includes code that was common across all 3 sites to create a starting point for future projects. Any projects that want to use a Strapi installation to do JWT sessions securely right from the start. And OAuth2 too!
+In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 3
+websites and a Strapi instance professionally for https://andbounds.com. During
+development, Fresh was released (June 2022) and I migrated all 3 sites over to
+it. This website Fresh-Strapi, created with permission and blessing of
+ANDBOUNDS, is a cousin to those 3 sites. It includes code that was common across
+all 3 sites to create a starting point for future projects. Any projects that
+want to use a Strapi installation to do JWT sessions securely right from the
+start. And OAuth2 too!
 
 ### Things here that you don't get from Fresh alone:
 
-* Redis Session Middleware
-* Global Config via .env
-* Test Harness
-* Puppeteer Test Harness
-* GitHub Actions Integration
-* My opinons about Template setup
-* A Google Tag Manager Element
-* Ready for Strapi as JWT provider
+- Redis Session Middleware
+- Global Config via .env
+- Test Harness
+- Puppeteer Test Harness
+- GitHub Actions Integration
+- My opinons about Template setup
+- A Google Tag Manager Element
+- Ready for Strapi as JWT provider
 
 ### See Also
 
-https://videopoker.academy is the another website in the Fresh-Strapi family. One that doesn't use Strapi.
+https://videopoker.academy is the another website in the Fresh-Strapi family.
+One that doesn't use Strapi.
