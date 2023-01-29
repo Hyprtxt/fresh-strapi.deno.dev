@@ -72,3 +72,23 @@ This will watch the project directory and restart as necessary.
 ### Things to do
 
 - Add pages and forms for the forgot password flow
+
+### ~A Short~ History
+
+I really like Deno and I was using it in 2021 because I was learning things about the browser from it. I made my own system for serving websites and I called it gaslight. You can see it here: https://github.com/Hyprtxt/gaslight.dev.
+
+In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 3 websites and a Strapi instance professionally for https://andbounds.com. During development, Fresh was released (June 2022) and I migrated all 3 sites over to it. This website Fresh-Strapi, created with permission and blessing of ANDBOUNDS, is a cousin to those 3 sites. It includes code that was common across all 3 sites to create a starting point for future projects. Projects that could use api.andbounds.com or any Strapi installation securely and quickly. 
+
+### Things here that you don't get from Fresh alone:
+
+* Redis Session Middleware
+* Environment Config
+* Test Harness
+* GitHub Actions Integration
+* My opinons about Template setup
+* A Google Tag Manager Element
+* Strapi (which is optional, and not really here, Bring your own)
+
+### See Also
+
+https://videopoker.academy is the another website in the Fresh-Strapi family. One that doesn't use Strapi.
