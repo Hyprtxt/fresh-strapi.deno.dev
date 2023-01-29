@@ -9,7 +9,7 @@ const puppet_config = DENO_ENV === "development"
 
 const startFresh = async () => {
   const serverProcess = Deno.run({
-    cmd: ["deno", "run", "-A", "main.ts"],
+    cmd: ["deno", "run", "-A", "--lock=deno.lock", "main.ts"],
     stdout: "piped",
     stderr: "inherit",
   });
