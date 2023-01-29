@@ -38,7 +38,7 @@ Try:
 deno test -A
 ```
 
-But you'll need to install chrome with this first:
+But you'll need to install Chromium with this first:
 
 ```
 PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@14.1.1/install.ts
@@ -53,11 +53,16 @@ Runs `deno fmt` and the Puppeteer tests on Github Actions using a Linux Host.
 
 [.github/workflows/deno.yml](.github/workflows/deno.yml)
 
-### Things to do
+#### Secrets for GitHub Actions
 
-Setup the tests so they launch the project, and test that version.
+Use this command to get the secret contents
 
-Document how secrets are added to github (base64 encode trick)
+```
+base64 .env.github | pbcopy
+```
+
+secret name should be `ENV_GITHUB_ACTIONS`
+
 
 ## Fresh Usage
 
@@ -73,7 +78,7 @@ This will watch the project directory and restart as necessary.
 
 - Add pages and forms for the forgot password flow
 
-### ~A Short~ History
+## ~A Short~ History
 
 I really like Deno and I was using it in 2021 because I was learning things about the browser from it. I made my own system for serving websites and I called it gaslight. You can see it here: https://github.com/Hyprtxt/gaslight.dev.
 
