@@ -31,7 +31,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.29.4
+          deno-version: v1.30.0
       
       - name: Verify formatting
         run: deno fmt --check
