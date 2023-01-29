@@ -9,7 +9,7 @@ const puppet_config = DENO_ENV === "development"
 
 const startFresh = async () => {
   const serverProcess = Deno.run({
-    cmd: ["deno", "run", "-A", "--lock=deno.lock", "main.ts"],
+    cmd: ["deno", "run", "-A", "main.ts"],
     stdout: "piped",
     stderr: "inherit",
   });
@@ -31,6 +31,7 @@ const stopFresh = (serverProcess) => {
   serverProcess.stdout.close();
   serverProcess.kill("SIGKILL");
   serverProcess.close();
+  console.log("Fresh Stopped");
 };
 
 export const freshTestWrapper = (theTests) => async (t) => {
