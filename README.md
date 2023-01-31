@@ -84,10 +84,10 @@ about the browser from it. I made my own system for serving websites and I
 called it gaslight. You can see it here:
 https://github.com/Hyprtxt/gaslight.dev.
 
-In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 3
+In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 2
 websites and a Strapi instance professionally for https://andbounds.com. During
-development, Fresh was released (June 2022) and I migrated all 3 sites over to
-it. This website Fresh-Strapi, created with permission and blessing of
+development, Fresh was released (June 2022) and I migrated the 2 sites over to
+Fresh and started work on a third site. This website Fresh-Strapi, created with permission and blessing of
 ANDBOUNDS, is a cousin to those 3 sites. It includes code that was common across
 all 3 sites to create a starting point for future projects. Any projects that
 want to use a Strapi installation to do JWT sessions securely right from the
