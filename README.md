@@ -87,11 +87,11 @@ https://github.com/Hyprtxt/gaslight.dev.
 In May 2022 I used Deno and some ideas from Gaslight (but with JSX) to develop 2
 websites and a Strapi instance professionally for https://andbounds.com. During
 development, Fresh was released (June 2022) and I migrated the 2 sites over to
-Fresh and started work on a third site. This website Fresh-Strapi, created with permission and blessing of
-ANDBOUNDS, is a cousin to those 3 sites. It includes code that was common across
-all 3 sites to create a starting point for future projects. Any projects that
-want to use a Strapi installation to do JWT sessions securely right from the
-start. And OAuth2 too!
+Fresh and started work on a third site. This website Fresh-Strapi, created with
+permission and blessing of ANDBOUNDS, is a cousin to those 3 sites. It includes
+code that was common across all 3 sites to create a starting point for future
+projects. Any projects that want to use a Strapi installation to do JWT sessions
+securely right from the start. And OAuth2 too!
 
 ### Things here that you don't get from Fresh alone:
 

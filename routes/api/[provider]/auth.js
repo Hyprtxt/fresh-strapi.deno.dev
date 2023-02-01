@@ -21,7 +21,7 @@ export const handler = {
     const state = Object.assign(ctx.state, { user, jwt });
     const payload = JSON.stringify(state);
     return await ctx.store.set(ctx.REDIS_KEY, payload).then(
-      () => redirect(ctx.BASE_URL + `/account`),
+      () => redirect(`${ctx.BASE_URL}/account`),
     );
   },
 };
