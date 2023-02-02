@@ -10,9 +10,4 @@ import manifest from "@/fresh.gen.ts";
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "@/twind.config.ts";
 
-import { PORT } from "@/utils/config.js";
-
-await start(manifest, {
-  port: PORT,
-  plugins: [twindPlugin(twindConfig)],
-});
+await start(manifest, { plugins: [twindPlugin(twindConfig)] });
