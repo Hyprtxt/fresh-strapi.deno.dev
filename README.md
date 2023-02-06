@@ -38,14 +38,8 @@ Try:
 deno test -A
 ```
 
-But you'll need to install Chromium with this first:
-
-```
-PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@14.1.1/install.ts
-```
-
-(mac & linux, run `deno test -A` on windows and hopefully it will give you the
-right link)
+You'll need to install Chromium first, running the test suite will provide the
+install command if it is not found.
 
 ## Github Actions
 
@@ -108,3 +102,8 @@ securely right from the start. And OAuth2 too!
 
 https://videopoker.academy is the another website in the Fresh-Strapi family.
 One that doesn't use Strapi.
+
+### Hate Redis?
+
+Replace it with LocalStorage, now your code doesn't scale across processes, but
+it's super easy to work with.
