@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { readLines } from "$std/io/buffer.ts";
+import { readLines } from "$std/io/read_lines.ts";
 import { delay } from "$std/async/delay.ts";
 import { DENO_ENV } from "@/utils/config.js";
 
