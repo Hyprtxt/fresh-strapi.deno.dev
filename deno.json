@@ -8,5 +8,10 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
+  },
+  "fmt": {
+    "options": {
+      "semiColons": false
+    }
   }
 }
