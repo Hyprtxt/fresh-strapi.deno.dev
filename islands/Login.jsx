@@ -65,7 +65,7 @@ const LoginForm = (props) => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

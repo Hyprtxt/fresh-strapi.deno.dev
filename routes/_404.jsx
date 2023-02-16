@@ -1,4 +1,4 @@
-import { Layout } from "@/routes/index.jsx";
+import { Layout } from "@/routes/index.jsx"
 
 export default function Page404({ data }) {
   return (
@@ -7,5 +7,5 @@ export default function Page404({ data }) {
         <p>Oh no! 404</p>
       </div>
     </Layout>
-  );
+  )
 }

@@ -76,7 +76,7 @@ const SignupForm = (props) => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default SignupForm;
+export default SignupForm

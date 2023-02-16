@@ -1,4 +1,4 @@
-import { HandlerContext } from "$fresh/server.ts";
+import { HandlerContext } from "$fresh/server.ts"
 
 // Jokes courtesy of https://punsandoneliners.com/randomness/programmer-jokes/
 const JOKES = [
@@ -12,10 +12,10 @@ const JOKES = [
   "My favourite computer based band is the Black IPs.",
   "What programme do you use to predict the music tastes of former US presidential candidates? An Al Gore Rhythm.",
   "An SEO expert walked into a bar, pub, inn, tavern, hostelry, public house.",
-];
+]
 
 export const handler = (_req: Request, _ctx: HandlerContext): Response => {
-  const randomIndex = Math.floor(Math.random() * JOKES.length);
-  const body = JOKES[randomIndex];
-  return new Response(body);
-};
+  const randomIndex = Math.floor(Math.random() * JOKES.length)
+  const body = JOKES[randomIndex]
+  return new Response(body)
+}

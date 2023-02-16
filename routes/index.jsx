@@ -1,17 +1,16 @@
-import Nav from "@/islands/Nav.jsx";
-import { CSS, render } from "gfm";
-import { asset, Head } from "$fresh/runtime.ts";
-import { DENO_ENV } from "@/utils/config.js";
+import Nav from "@/islands/Nav.jsx"
+import { CSS, render } from "gfm"
+import { asset, Head } from "$fresh/runtime.ts"
+import { DENO_ENV } from "@/utils/config.js"
 
 export const handler = {
   GET: async (req, ctx) => {
-    const markdown = await Deno.readTextFile(`README.md`);
-    const rootUrl =
-      "https://github.com/Hyprtxt/fresh-strapi.deno.dev/blob/main";
-    const readme = render(markdown, rootUrl);
-    return ctx.render({ ...ctx.state, CSS, readme });
+    const markdown = await Deno.readTextFile(`README.md`)
+    const rootUrl = "https://github.com/Hyprtxt/fresh-strapi.deno.dev/blob/main"
+    const readme = render(markdown, rootUrl)
+    return ctx.render({ ...ctx.state, CSS, readme })
   },
-};
+}
 
 const Footer = () => (
   <div class="p-4 mx-auto max-w-screen-md">
@@ -110,10 +109,10 @@ const Footer = () => (
       </a>
     </p>
   </div>
-);
+)
 
 export default function PageHome({ data }) {
-  const { CSS, readme } = data;
+  const { CSS, readme } = data
   return (
     <Layout data={data}>
       <div class="p-4 mx-auto max-w-screen-md">
@@ -136,7 +135,7 @@ export default function PageHome({ data }) {
         <Footer />
       </div>
     </Layout>
-  );
+  )
 }
 
 export const Layout = ({ children, data }) => {
@@ -148,5 +147,5 @@ export const Layout = ({ children, data }) => {
         ? <pre>{JSON.stringify(data, null, 2)}</pre>
         : ""}
     </>
-  );
-};
+  )
+}

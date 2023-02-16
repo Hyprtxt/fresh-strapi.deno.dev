@@ -1,44 +1,43 @@
-import { useEffect, useRef, useState } from "preact/hooks";
-import { tw } from "twind";
-import { asset } from "$fresh/runtime.ts";
+import { useEffect, useRef, useState } from "preact/hooks"
+import { tw } from "twind"
+import { asset } from "$fresh/runtime.ts"
 
 const Nav = () => {
-  const ref = useRef(window);
-  const [navOpen, setNavOpen] = useState(false);
-  const LINK_STYLE = tw`block mt-4 md:inline-block md:mt-0 hover:text-white`;
-  const NAV_STYLE =
-    tw`w-full block flex-grow md:flex md:items-center md:w-auto`;
-  const NAV_LINKS_STYLE = tw`text-sm md:flex-grow`;
+  const ref = useRef(window)
+  const [navOpen, setNavOpen] = useState(false)
+  const LINK_STYLE = tw`block mt-4 md:inline-block md:mt-0 hover:text-white`
+  const NAV_STYLE = tw`w-full block flex-grow md:flex md:items-center md:w-auto`
+  const NAV_LINKS_STYLE = tw`text-sm md:flex-grow`
   const BUTTON_STYLE =
-    tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0`;
+    tw`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-yellow-400 mt-4 md:mt-0`
   useEffect(() => {
     // const url = new URL(ref.current.location.href);
-    let lastKnownWidth = 0;
-    let ticking = false;
+    let lastKnownWidth = 0
+    let ticking = false
     const doSomething = (width) => {
-      console.log(width);
+      console.log(width)
       if (width > 768) {
-        setNavOpen(true);
+        setNavOpen(true)
       } else {
-        setNavOpen(false);
+        setNavOpen(false)
       }
-    };
+    }
     const onResize = (e) => {
-      lastKnownWidth = ref.current.innerWidth;
+      lastKnownWidth = ref.current.innerWidth
       if (!ticking) {
         ref.current.requestAnimationFrame(() => {
-          doSomething(lastKnownWidth);
-          ticking = false;
-        });
-        ticking = true;
+          doSomething(lastKnownWidth)
+          ticking = false
+        })
+        ticking = true
       }
-    };
-    doSomething(ref.current.innerWidth);
-    ref.current.addEventListener("resize", onResize);
+    }
+    doSomething(ref.current.innerWidth)
+    ref.current.addEventListener("resize", onResize)
     return () => {
-      ref.current.removeEventListener("resize", onResize);
-    };
-  }, []);
+      ref.current.removeEventListener("resize", onResize)
+    }
+  }, [])
 
   return (
     <div class="bg-yellow-500">
@@ -61,7 +60,7 @@ const Nav = () => {
           <button
             class="flex items-center px-3 py-2 border rounded text-white hover:border-yellow-400 hover:bg-yellow-400 focus:outline-none"
             onClick={() => {
-              setNavOpen(!navOpen);
+              setNavOpen(!navOpen)
             }}
           >
             <svg
@@ -112,6 +111,6 @@ const Nav = () => {
           : ""}
       </nav>
     </div>
-  );
-};
-export default Nav;
+  )
+}
+export default Nav

@@ -2,21 +2,21 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/_404.jsx";
-import * as $1 from "./routes/_middleware.js";
-import * as $2 from "./routes/account/_middleware.js";
-import * as $3 from "./routes/account/index.jsx";
-import * as $4 from "./routes/api/[provider]/auth.js";
-import * as $5 from "./routes/api/joke.ts";
-import * as $6 from "./routes/index.jsx";
-import * as $7 from "./routes/login/[provider].js";
-import * as $8 from "./routes/login/index.jsx";
-import * as $9 from "./routes/logout.jsx";
-import * as $10 from "./routes/signup.jsx";
-import * as $$0 from "./islands/Login.jsx";
-import * as $$1 from "./islands/Nav.jsx";
-import * as $$2 from "./islands/Signup.jsx";
+import config from "./deno.json" assert { type: "json" }
+import * as $0 from "./routes/_404.jsx"
+import * as $1 from "./routes/_middleware.js"
+import * as $2 from "./routes/account/_middleware.js"
+import * as $3 from "./routes/account/index.jsx"
+import * as $4 from "./routes/api/[provider]/auth.js"
+import * as $5 from "./routes/api/joke.ts"
+import * as $6 from "./routes/index.jsx"
+import * as $7 from "./routes/login/[provider].js"
+import * as $8 from "./routes/login/index.jsx"
+import * as $9 from "./routes/logout.jsx"
+import * as $10 from "./routes/signup.jsx"
+import * as $$0 from "./islands/Login.jsx"
+import * as $$1 from "./islands/Nav.jsx"
+import * as $$2 from "./islands/Signup.jsx"
 
 const manifest = {
   routes: {
@@ -39,6 +39,6 @@ const manifest = {
   },
   baseUrl: import.meta.url,
   config,
-};
+}
 
-export default manifest;
+export default manifest

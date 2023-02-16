@@ -1,23 +1,23 @@
-import Login from "@/islands/Login.jsx";
-import { Layout } from "@/routes/index.jsx";
+import Login from "@/islands/Login.jsx"
+import { Layout } from "@/routes/index.jsx"
 
 export const handler = {
   GET: (_req, ctx) => {
-    return ctx.render({ ...ctx.state });
+    return ctx.render({ ...ctx.state })
   },
   POST: async (req, ctx) => {
     const login = await fetch(`${ctx.API_URL}/auth/local`, {
       method: "POST",
       body: await req.formData(),
-    }).then(async (res) => await res.json());
-    console.log(login);
+    }).then(async (res) => await res.json())
+    console.log(login)
     // Redirect if we got a login success, else render the form with an error
     if (login.error) {
-      return ctx.render({ ...ctx.state, error: login.error });
+      return ctx.render({ ...ctx.state, error: login.error })
     } else {
-      const { user, jwt } = login;
+      const { user, jwt } = login
       // Put the login into the redis store
-      const state = Object.assign(ctx.state, { user, jwt, webview: false });
+      const state = Object.assign(ctx.state, { user, jwt, webview: false })
       return await ctx.store.set(ctx.REDIS_KEY, JSON.stringify(state)).then(
         () => {
           // Redirect. Next request will get the session from it's cookie
@@ -26,16 +26,16 @@ export const handler = {
             headers: new Headers({
               location: ctx.BASE_URL + `/account`,
             }),
-          });
-          return res;
+          })
+          return res
         },
-      );
+      )
     }
   },
-};
+}
 
 const PageLogin = ({ data }) => {
-  const { error } = data;
+  const { error } = data
   return (
     <Layout data={data}>
       <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -60,8 +60,8 @@ const PageLogin = ({ data }) => {
         {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 export const LoginOAuth = ({ provider, children }) => (
   <a
@@ -86,6 +86,6 @@ export const LoginOAuth = ({ provider, children }) => (
     </span>
     {children}
   </a>
-);
+)
 
-export default PageLogin;
+export default PageLogin

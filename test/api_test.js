@@ -20,19 +20,19 @@
 //   }),
 // );
 
-import { assertEquals } from "$std/testing/asserts.ts";
-import { BASE_URL } from "@/utils/config.js";
-import { freshTestWrapper } from "@/test/runner.js";
+import { assertEquals } from "$std/testing/asserts.ts"
+import { BASE_URL } from "@/utils/config.js"
+import { freshTestWrapper } from "@/test/runner.js"
 
 Deno.test(
   "API Testing",
   freshTestWrapper(async (t) => {
     await t.step("The API sign-in route should work", () => {
-      const url = new URL("./foo.js", BASE_URL);
-      assertEquals(url.href, `${BASE_URL}/foo.js`);
-    });
+      const url = new URL("./foo.js", BASE_URL)
+      assertEquals(url.href, `${BASE_URL}/foo.js`)
+    })
   }),
-);
+)
 
 // Deno.test("url test", () => {
 //   const url = new URL("./foo.js", "https://deno.land/");

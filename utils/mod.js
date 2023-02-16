@@ -6,4 +6,4 @@ export const redirect = (Location) =>
     headers: new Headers({
       Location,
     }),
-  });
+  })
