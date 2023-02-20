@@ -23,6 +23,24 @@ Deno.test(
       })
       assertEquals(response.status(), 200)
     })
+    await t.step("The forgot password page should 200", async () => {
+      const response = await page.goto(`${BASE_URL}/forgot-password`, {
+        waitUntil: "networkidle2",
+      })
+      assertEquals(response.status(), 200)
+    })
+    await t.step("The forgot password success page should 200", async () => {
+      const response = await page.goto(`${BASE_URL}/forgot-password/success`, {
+        waitUntil: "networkidle2",
+      })
+      assertEquals(response.status(), 200)
+    })
+    await t.step("The reset password page should 200", async () => {
+      const response = await page.goto(`${BASE_URL}/reset-password`, {
+        waitUntil: "networkidle2",
+      })
+      assertEquals(response.status(), 200)
+    })
     await t.step("The account page should 401", async () => {
       const response = await page.goto(`${BASE_URL}/account`, {
         waitUntil: "networkidle2",
