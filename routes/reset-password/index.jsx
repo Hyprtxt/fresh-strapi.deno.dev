@@ -14,7 +14,12 @@ export const handler = {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())
-    console.log(reset, "reset stuff")
+    if (reset.ok) {
+      return redirect(`${BASE_URL}/login`)
+    }
+    if (reset.error) {
+      return ctx.render({ ...ctx.state, error: reset.error })
+    }
     return redirect(`${BASE_URL}/login`)
   },
 }

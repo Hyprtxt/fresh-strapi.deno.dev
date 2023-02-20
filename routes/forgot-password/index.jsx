@@ -12,18 +12,14 @@ export const handler = {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())
-    console.log(login, "reset stuff")
+    // console.log(login, "reset stuff")
     if (login.ok) {
-      // 'Your password reset email has been sent!'
-      console.log(`${BASE_URL}/forgot-password`, BASE_URL)
-      return redirect(`${BASE_URL}/forgot-password`)
+      return redirect(`${BASE_URL}/forgot-password/success`)
     }
     if (login.error) {
       return ctx.render({ ...ctx.state, error: login.error })
     }
-    // 500 error?
-    // There is probably a Strapi issue, make sure test email works.
-    return ctx.render({ ...ctx.state, error: { message: "500 error" } })
+    // return ctx.render({ ...ctx.state })
   },
 }
 
