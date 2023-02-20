@@ -67,10 +67,6 @@ deno task start
 
 This will watch the project directory and restart as necessary.
 
-### Things to do
-
-- Add pages and forms for the forgot password flow
-
 ## ~A Short~ History
 
 I really like Deno and I was using it in 2021 because I was learning things
