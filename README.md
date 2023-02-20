@@ -21,8 +21,20 @@ Strapi server. You can also use this project with local strapi and redis.
 cp .env.example .env
 ```
 
-Then open [.env](./.env.example) and add your secrets. You can use the same
-process to add secrets on Deno Deploy
+Then open [.env](./.env.example) and add your secrets.
+
+```
+code .env
+```
+
+## Deploy it
+
+Add your secrets on Deno Deploy, it's really easy1!!
+
+For self hosted, use the run task `deno task run`, to run the project in
+production mode. I still use `pm2` to monitor my Deno processes in production. I
+also use nginx as my webserver and configure proxies to the individual
+processes.
 
 ## Puppeteer Testing
 

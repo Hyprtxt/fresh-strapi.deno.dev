@@ -42,7 +42,20 @@ Deno.test(
       assertEquals(response.status(), 200)
     })
     await t.step("The account page should 401", async () => {
+      // This is really a 301 to 401...
       const response = await page.goto(`${BASE_URL}/account`, {
+        waitUntil: "networkidle2",
+      })
+      assertEquals(response.status(), 401)
+    })
+    await t.step("The error page should 404", async () => {
+      const response = await page.goto(`${BASE_URL}/404`, {
+        waitUntil: "networkidle2",
+      })
+      assertEquals(response.status(), 404)
+    })
+    await t.step("The unauthorized page should 401", async () => {
+      const response = await page.goto(`${BASE_URL}/unauthorized`, {
         waitUntil: "networkidle2",
       })
       assertEquals(response.status(), 401)

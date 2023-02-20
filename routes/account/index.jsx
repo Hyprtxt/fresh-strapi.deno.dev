@@ -1,28 +1,21 @@
 import { Layout } from "@/routes/index.jsx"
-import PageLogin from "@/routes/login/index.jsx"
+import { API_URL } from "@/utils/config.js"
 
 export const handler = {
   GET: async (_req, ctx) => {
-    const resp = await ctx.render({
-      ...ctx.state,
+    const me = await fetch(`${API_URL}/users/me`, {
+      headers: new Headers({
+        Authorization: `Bearer ${ctx.state.jwt}`,
+      }),
     })
-    if (ctx.state.unauthorized) {
-      return new Response(resp.body, {
-        status: 401,
-        headers: resp.headers,
-      })
-    } else {
-      return resp
-    }
+      .then(async (res) => await res.json())
+    return ctx.render({ ...ctx.state, me })
   },
 }
 
 export default function PageAccount(props) {
   const { data } = props
-  const { unauthorized, user } = data
-  if (unauthorized) {
-    return PageLogin(props)
-  }
+  const { user } = data
   return (
     <Layout data={data}>
       <div id="account" class="p-4 mx-auto max-w-screen-md">
