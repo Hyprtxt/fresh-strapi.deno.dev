@@ -1,49 +1,26 @@
 // import { useState } from "preact/hooks";
-const LoginForm = (props) => {
+const ForgotPasswordForm = (props) => {
   // const [count, setCount] = useState(props.start);
   return (
-    <form class="space-y-6 mt-8" action="/login" method="POST">
+    <form class="space-y-6 mt-8" action="/forgot-password" method="POST">
       {/* <input type="hidden" name="remember" value="true" /> */}
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="identifier" class="sr-only">Username</label>
+          <label for="email" class="sr-only">Email Address</label>
           <input
-            id="identifier"
-            name="identifier"
+            id="email"
+            name="email"
             type="text"
             required
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm"
-            placeholder="Username"
+            placeholder="eMail Address"
           />
-        </div>
-        <div>
-          <label for="password" class="sr-only">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autocomplete="current-password"
-            required
-            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm"
-            placeholder="Password"
-          />
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between">
-        <div class="text-sm">
-          <a
-            href="/forgot-password"
-            class="font-medium text-yellow-400 hover:text-yellow-300"
-          >
-            Forgot your password?
-          </a>
         </div>
       </div>
       <div>
         <button
           type="submit"
-          id="login-submit"
+          id="forgot-submit"
           class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300"
         >
           <span class="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -61,11 +38,11 @@ const LoginForm = (props) => {
               />
             </svg>
           </span>
-          Sign in
+          Send Password Reset eMail
         </button>
       </div>
     </form>
   )
 }
 
-export default LoginForm
+export default ForgotPasswordForm

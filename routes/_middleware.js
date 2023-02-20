@@ -77,6 +77,8 @@ export async function handler(req, ctx) {
     "/signup",
     "/logout",
     "/account",
+    "/reset-password",
+    "/forgot-password",
   ]
   let resp
   if (

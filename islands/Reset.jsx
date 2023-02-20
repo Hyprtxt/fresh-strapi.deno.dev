@@ -1,31 +1,36 @@
 // import { useState } from "preact/hooks";
-const LoginForm = (props) => {
+const ResetPasswordForm = (props) => {
   // const [count, setCount] = useState(props.start);
+  const { code } = props
   return (
-    <form class="space-y-6 mt-8" action="/login" method="POST">
+    <form class="space-y-6 mt-8" action="/reset-password" method="POST">
       {/* <input type="hidden" name="remember" value="true" /> */}
+      <input type="hidden" name="code" value={code}></input>
       <div class="rounded-md shadow-sm -space-y-px">
-        <div>
-          <label for="identifier" class="sr-only">Username</label>
-          <input
-            id="identifier"
-            name="identifier"
-            type="text"
-            required
-            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm"
-            placeholder="Username"
-          />
-        </div>
         <div>
           <label for="password" class="sr-only">Password</label>
           <input
             id="password"
             name="password"
             type="password"
-            autocomplete="current-password"
+            autocomplete="new-password"
             required
             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm"
-            placeholder="Password"
+            placeholder="New Password"
+          />
+        </div>
+      </div>
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <label for="passwordConfirmation" class="sr-only">Password</label>
+          <input
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            type="password"
+            autocomplete="confirm-password"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 focus:z-10 sm:text-sm"
+            placeholder="Confirm Password"
           />
         </div>
       </div>
@@ -33,10 +38,10 @@ const LoginForm = (props) => {
       <div class="flex items-center justify-between">
         <div class="text-sm">
           <a
-            href="/forgot-password"
+            href="/login"
             class="font-medium text-yellow-400 hover:text-yellow-300"
           >
-            Forgot your password?
+            Login instead
           </a>
         </div>
       </div>
@@ -61,11 +66,11 @@ const LoginForm = (props) => {
               />
             </svg>
           </span>
-          Sign in
+          Reset my Password
         </button>
       </div>
     </form>
   )
 }
 
-export default LoginForm
+export default ResetPasswordForm
