@@ -110,8 +110,3 @@ securely right from the start. And OAuth2 too!
 
 https://videopoker.academy is the another website in the Fresh-Strapi family.
 One that doesn't use Strapi.
-
-### Hate Redis?
-
-Replace it with LocalStorage, now your code doesn't scale across processes, but
-it's super easy to work with.
