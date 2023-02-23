@@ -73,6 +73,7 @@ export async function handler(req, ctx) {
   const { pathname } = new URL(req.url)
   const withSession = [
     "/",
+    "/pages",
     "/login",
     "/signup",
     "/logout",
@@ -85,6 +86,7 @@ export async function handler(req, ctx) {
     withSession.includes(pathname) ||
     pathname.startsWith("/login/") ||
     pathname.startsWith("/api/") ||
+    pathname.startsWith("/pages/") ||
     pathname.startsWith("/forgot-password/") ||
     pathname.startsWith("/account/")
   ) {

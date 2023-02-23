@@ -15,9 +15,10 @@ import * as $8 from "./routes/index.jsx"
 import * as $9 from "./routes/login/[provider].js"
 import * as $10 from "./routes/login/index.jsx"
 import * as $11 from "./routes/logout.jsx"
-import * as $12 from "./routes/reset-password/index.jsx"
-import * as $13 from "./routes/signup.jsx"
-import * as $14 from "./routes/unauthorized.tsx"
+import * as $12 from "./routes/pages/[slug].jsx"
+import * as $13 from "./routes/reset-password/index.jsx"
+import * as $14 from "./routes/signup.jsx"
+import * as $15 from "./routes/unauthorized.tsx"
 import * as $$0 from "./islands/Forgot.jsx"
 import * as $$1 from "./islands/Login.jsx"
 import * as $$2 from "./islands/Nav.jsx"
@@ -38,9 +39,10 @@ const manifest = {
     "./routes/login/[provider].js": $9,
     "./routes/login/index.jsx": $10,
     "./routes/logout.jsx": $11,
-    "./routes/reset-password/index.jsx": $12,
-    "./routes/signup.jsx": $13,
-    "./routes/unauthorized.tsx": $14,
+    "./routes/pages/[slug].jsx": $12,
+    "./routes/reset-password/index.jsx": $13,
+    "./routes/signup.jsx": $14,
+    "./routes/unauthorized.tsx": $15,
   },
   islands: {
     "./islands/Forgot.jsx": $$0,
