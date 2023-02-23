@@ -19,8 +19,6 @@ const ResetPasswordForm = (props) => {
             placeholder="New Password"
           />
         </div>
-      </div>
-      <div class="rounded-md shadow-sm -space-y-px">
         <div>
           <label for="passwordConfirmation" class="sr-only">Password</label>
           <input
