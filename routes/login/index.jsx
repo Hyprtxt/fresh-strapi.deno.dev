@@ -11,7 +11,7 @@ export const handler = {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())
-    console.log(login)
+    // console.log(login)
     // Redirect if we got a login success, else render the form with an error
     if (login.error) {
       return ctx.render({ ...ctx.state, error: login.error })

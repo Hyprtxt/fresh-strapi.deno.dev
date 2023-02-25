@@ -15,7 +15,7 @@ const Nav = () => {
     let lastKnownWidth = 0
     let ticking = false
     const doSomething = (width) => {
-      console.log(width)
+      // console.log(width)
       if (width > 768) {
         setNavOpen(true)
       } else {
