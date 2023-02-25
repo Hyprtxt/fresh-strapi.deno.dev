@@ -1,9 +1,53 @@
-// import { useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks"
+
 const LoginForm = (props) => {
-  // const [count, setCount] = useState(props.start);
+  const [buttonDisabled, setButtonDisabled] = useState(false)
+  const form = useRef(null)
+  useEffect(() => {
+    const fv = FormValidation.formValidation(
+      form.current,
+      {
+        fields: {
+          identifier: {
+            validators: {
+              notEmpty: {
+                message: "Please provide an email address",
+              },
+              emailAddress: {
+                message: "The value is not a valid email address",
+              },
+            },
+          },
+          password: {
+            validators: {
+              notEmpty: {
+                message: "Please provide a password",
+              },
+              stringLength: {
+                min: 6,
+                message: "Passwords are at least 6 characters long",
+              },
+            },
+          },
+        },
+        plugins: {
+          message: new FormValidation.plugins.Message({
+            container: ".validation-message",
+          }),
+          trigger: new FormValidation.plugins.Trigger(),
+          submitButton: new FormValidation.plugins.SubmitButton(),
+          defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        },
+      },
+    )
+    fv.on("core.form.valid", () => {
+      setButtonDisabled(true)
+    })
+    // console.log(fv, form)
+  }, [])
   return (
-    <form class="space-y-6 mt-8" action="/login" method="POST">
-      {/* <input type="hidden" name="remember" value="true" /> */}
+    <form ref={form} class="space-y-6 mt-8" action="/login" method="POST">
+      <div class="validation-message text-red-500"></div>
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
           <label for="identifier" class="sr-only">Username</label>
@@ -45,6 +89,7 @@ const LoginForm = (props) => {
           type="submit"
           id="login-submit"
           class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300"
+          disabled={buttonDisabled}
         >
           <span class="absolute left-0 inset-y-0 flex items-center pl-3">
             <svg
