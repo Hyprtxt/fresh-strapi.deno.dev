@@ -25,13 +25,13 @@ import { BASE_URL } from "@/utils/config.js"
 import { freshTestWrapper } from "@/test/runner.js"
 
 Deno.test(
-	"API Testing",
-	freshTestWrapper(async (t) => {
-		await t.step("The API sign-in route should work", () => {
-			const url = new URL("./foo.js", BASE_URL)
-			assertEquals(url.href, `${BASE_URL}/foo.js`)
-		})
-	}),
+  "API Testing",
+  freshTestWrapper(async (t) => {
+    await t.step("The API sign-in route should work", () => {
+      const url = new URL("./foo.js", BASE_URL)
+      assertEquals(url.href, `${BASE_URL}/foo.js`)
+    })
+  }),
 )
 
 // Deno.test("url test", () => {

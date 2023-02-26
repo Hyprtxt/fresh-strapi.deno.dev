@@ -25,32 +25,32 @@ import * as $$3 from "./islands/Reset.jsx"
 import * as $$4 from "./islands/Signup.jsx"
 
 const manifest = {
-	routes: {
-		"./routes/_404.jsx": $0,
-		"./routes/_middleware.js": $1,
-		"./routes/account/_middleware.js": $2,
-		"./routes/account/index.jsx": $3,
-		"./routes/api/[provider]/auth.js": $4,
-		"./routes/api/joke.ts": $5,
-		"./routes/forgot-password/index.jsx": $6,
-		"./routes/forgot-password/success.jsx": $7,
-		"./routes/index.jsx": $8,
-		"./routes/login/[provider].js": $9,
-		"./routes/login/index.jsx": $10,
-		"./routes/logout.jsx": $11,
-		"./routes/reset-password/index.jsx": $12,
-		"./routes/signup.jsx": $13,
-		"./routes/unauthorized.tsx": $14,
-	},
-	islands: {
-		"./islands/Forgot.jsx": $$0,
-		"./islands/Login.jsx": $$1,
-		"./islands/Nav.jsx": $$2,
-		"./islands/Reset.jsx": $$3,
-		"./islands/Signup.jsx": $$4,
-	},
-	baseUrl: import.meta.url,
-	config,
+  routes: {
+    "./routes/_404.jsx": $0,
+    "./routes/_middleware.js": $1,
+    "./routes/account/_middleware.js": $2,
+    "./routes/account/index.jsx": $3,
+    "./routes/api/[provider]/auth.js": $4,
+    "./routes/api/joke.ts": $5,
+    "./routes/forgot-password/index.jsx": $6,
+    "./routes/forgot-password/success.jsx": $7,
+    "./routes/index.jsx": $8,
+    "./routes/login/[provider].js": $9,
+    "./routes/login/index.jsx": $10,
+    "./routes/logout.jsx": $11,
+    "./routes/reset-password/index.jsx": $12,
+    "./routes/signup.jsx": $13,
+    "./routes/unauthorized.tsx": $14,
+  },
+  islands: {
+    "./islands/Forgot.jsx": $$0,
+    "./islands/Login.jsx": $$1,
+    "./islands/Nav.jsx": $$2,
+    "./islands/Reset.jsx": $$3,
+    "./islands/Signup.jsx": $$4,
+  },
+  baseUrl: import.meta.url,
+  config,
 }
 
 export default manifest
