@@ -21,7 +21,7 @@ export default function Page401({ data }) {
           That's an error, Whoops!
         </p>
         <p class="my-6">
-          Try logging in?
+          Try <a href="/login">logging</a> in?
         </p>
       </div>
     </Layout>
