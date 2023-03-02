@@ -1,10 +1,14 @@
 import { assertEquals } from "$std/testing/asserts.ts"
-import { freshPuppetTestWrapper } from "@/test/runner.js"
-import { BASE_URL } from "@/utils/config.js"
+import { freshPuppetTestWrapper } from "fresh_marionette"
+import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+
+const puppet_config = DENO_ENV === "development"
+  ? { headless: false, defaultViewport: null }
+  : { headless: true }
 
 Deno.test(
   "Public Pages Testing",
-  freshPuppetTestWrapper(async (t, page) => {
+  freshPuppetTestWrapper(puppet_config, async (t, page) => {
     await t.step("The homepage should work", async () => {
       const response = await page.goto(`${BASE_URL}`, {
         waitUntil: "networkidle2",

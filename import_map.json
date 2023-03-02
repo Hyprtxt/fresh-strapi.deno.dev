@@ -10,7 +10,7 @@
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "redis": "https://deno.land/x/redis@v0.29.1/mod.ts",
-    "puppeteer": "https://deno.land/x/puppeteer@16.2.0/mod.ts",
+    "fresh_marionette": "https://deno.land/x/fresh_marionette@v1.1.0/mod.js",
     "envalid": "https://deno.land/x/envalid@0.1.2/mod.ts",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1"
