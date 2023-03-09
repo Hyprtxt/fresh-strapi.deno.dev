@@ -1,9 +1,7 @@
 import { Layout } from "@/routes/index.jsx"
 
 export const handler = {
-  GET: async (req, ctx) => {
-    const url = new URL(req.url)
-    // ctx.state.url = url
+  GET: async (_req, ctx) => {
     const resp = await ctx.render({ ...ctx.state })
     return new Response(resp.body, {
       headers: resp.headers,
