@@ -4,9 +4,9 @@ import { redirect } from "@/utils/mod.js"
 import { BASE_URL } from "@/utils/config.js"
 
 export const handler = {
-  GET: (_req, ctx) => {
-    const code = ctx.state.url.searchParams.get("code") || ""
-    // console.log(ctx.state.url, code, "yYESJS")
+  GET: (req, ctx) => {
+    const url = new URL(req.url)
+    const code = url.searchParams.get("code") || ""
     return ctx.render({ ...ctx.state, code })
   },
   POST: async (req, ctx) => {

@@ -2,10 +2,11 @@
 import { redirect } from "@/utils/mod.js"
 
 export const handler = {
-  GET: async (_req, ctx) => {
+  GET: async (req, ctx) => {
     const provider = ctx.params.provider
     // console.log(provider, "auth.js");
-    const { search } = ctx.state.url
+    const url = new URL(req.url)
+    const { search } = url
     const login = await fetch(
       `${ctx.API_URL}/auth/${provider}/callback${search}`,
     ).then(async (res) => {
