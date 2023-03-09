@@ -16,5 +16,6 @@
     "options": {
       "semiColons": false
     }
-  }
+  },
+  "lock": false
 }
