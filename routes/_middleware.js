@@ -34,7 +34,7 @@ const createSession = async () => {
 const setupNewSession = async (req, ctx) => {
   ctx.state = await createSession()
   ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME])
-  // setupState(req, ctx)
+  setupStateHook(req, ctx)
   const resp = await ctx.next()
   setCookie(resp.headers, {
     name: COOKIE_NAME,
@@ -57,17 +57,15 @@ const setupSession = async (req, ctx) => {
   } else {
     return await setupNewSession(req, ctx)
   }
-  // setupState(req, ctx)
+  setupStateHook(req, ctx)
   return await ctx.next()
 }
 
-// const setupState = (req, ctx) => {
-//   // If you are behind NGINX or something, this can be helpful
-//   // req.url.replace("http:", "https:");
-//   // const url = new URL(req.url)
-//   // ctx.state.url = url
-//   return
-// }
+const setupStateHook = (_req, _ctx) => {
+  // const url = new URL(req.url)
+  // ctx.state.url = url
+  return
+}
 
 export async function handler(req, ctx) {
   // For Logging
