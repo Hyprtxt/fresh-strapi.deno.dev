@@ -1,8 +1,8 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/,README.md --lock=deno.lock dev.ts",
-    "reload": "deno run -A --watch=static/,routes/,README.md --reload --lock=deno.lock dev.ts",
-    "run": "DENO_DEPLOYMENT_ID=$(git rev-parse --short HEAD) deno run -A --lock=deno.lock main.ts"
+    "start": "deno run -A --watch=static/,routes/,README.md dev.ts",
+    "reload": "deno run -A --watch=static/,routes/,README.md --reload dev.ts",
+    "run": "DENO_DEPLOYMENT_ID=$(git rev-parse --short HEAD) deno run -A main.ts"
   },
   "importMap": "./import_map.json",
   "compilerOptions": {

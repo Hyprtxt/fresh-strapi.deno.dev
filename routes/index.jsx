@@ -4,7 +4,7 @@ import { asset, Head } from "$fresh/runtime.ts"
 import { DENO_ENV } from "@/utils/config.js"
 
 export const handler = {
-  GET: async (req, ctx) => {
+  GET: async (_req, ctx) => {
     const markdown = await Deno.readTextFile(`README.md`)
     const rootUrl = "https://github.com/Hyprtxt/fresh-strapi.deno.dev/blob/main"
     const readme = render(markdown, rootUrl)
