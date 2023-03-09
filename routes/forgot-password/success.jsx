@@ -9,9 +9,8 @@ export const handler = {
 }
 
 export default function PageAccount(props) {
-  const { data } = props
   return (
-    <Layout data={data}>
+    <Layout data={props}>
       <div id="account" class="p-4 mx-auto max-w-screen-md">
         <img
           src="/logo.svg"

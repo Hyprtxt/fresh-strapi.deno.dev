@@ -35,10 +35,11 @@ export const handler = {
   },
 }
 
-const PageLogin = ({ data }) => {
+const PageLogin = (props) => {
+  const { data } = props
   const { error } = data
   return (
-    <Layout data={data}>
+    <Layout data={props}>
       <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full">
           <div>

@@ -12,9 +12,9 @@ export const handler = {
   },
 }
 
-export default function Page401({ data }) {
+export default function Page401(props) {
   return (
-    <Layout data={data}>
+    <Layout data={props}>
       <div class="p-4 mx-auto max-w-screen-md">
         <h1 class="text-red text-4xl">401 Unauthorized</h1>
         <p class="my-6">

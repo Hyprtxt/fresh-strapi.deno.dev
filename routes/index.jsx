@@ -111,10 +111,11 @@ const Footer = () => (
   </div>
 )
 
-export default function PageHome({ data }) {
+export default function PageHome(props) {
+  const { data } = props
   const { CSS, readme } = data
   return (
-    <Layout data={data}>
+    <Layout data={props}>
       <div class="p-4 mx-auto max-w-screen-md">
         <Head>
           <style>{CSS}</style>
