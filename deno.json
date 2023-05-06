@@ -11,7 +11,7 @@
   },
   "fmt": {
     "files": {
-      "exclude": ["static/"]
+      "exclude": ["static/", "utils/form-validation.io/"]
     },
     "options": {
       "semiColons": false

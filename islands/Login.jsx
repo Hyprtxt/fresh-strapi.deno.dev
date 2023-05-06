@@ -1,19 +1,15 @@
 import { useEffect, useRef, useState } from "preact/hooks"
-import { asset, Head } from "$fresh/runtime.ts"
-
-const LoadFormValidation = () => (
-  <Head>
-    <script
-      src={asset("./vendor/formvalidation/js/FormValidation.js")}
-    />
-  </Head>
-)
+import {
+  formValidation,
+  plugins,
+} from "@/utils/form-validation.io/bundle/full.js"
 
 const LoginForm = (props) => {
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const form = useRef(null)
   useEffect(() => {
-    const fv = FormValidation.formValidation(
+    console.log(plugins)
+    const fv = formValidation(
       form.current,
       {
         fields: {
@@ -40,23 +36,22 @@ const LoginForm = (props) => {
           },
         },
         plugins: {
-          message: new FormValidation.plugins.Message({
+          message: new plugins.Message({
             container: ".validation-message",
           }),
-          trigger: new FormValidation.plugins.Trigger(),
-          submitButton: new FormValidation.plugins.SubmitButton(),
-          defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+          trigger: new plugins.Trigger(),
+          submitButton: new plugins.SubmitButton(),
+          defaultSubmit: new plugins.DefaultSubmit(),
         },
       },
     )
     fv.on("core.form.valid", () => {
       setButtonDisabled(true)
     })
-    // console.log(fv, form)
+    console.log("loginform", fv, form)
   }, [])
   return (
     <>
-      <LoadFormValidation />
       <form ref={form} class="space-y-6 mt-8" action="/login" method="POST">
         <div class="validation-message text-red-500"></div>
         <div class="rounded-md shadow-sm -space-y-px">
