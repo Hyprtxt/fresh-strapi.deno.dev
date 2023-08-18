@@ -1,13 +1,14 @@
 import Login from "@/islands/Login.jsx"
 import { Layout } from "@/routes/index.jsx"
 import { asset, Head } from "$fresh/runtime.ts"
+import { store } from "@/routes/_middleware.js"
 
 export const handler = {
   GET: (_req, ctx) => {
     return ctx.render({ ...ctx.state })
   },
   POST: async (req, ctx) => {
-    const login = await fetch(`${ctx.API_URL}/auth/local`, {
+    const login = await fetch(`${ctx.state.API_URL}/auth/local`, {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())
@@ -19,18 +20,19 @@ export const handler = {
       const { user, jwt } = login
       // Put the login into the redis store
       const state = Object.assign(ctx.state, { user, jwt, webview: false })
-      return await ctx.store.set(ctx.REDIS_KEY, JSON.stringify(state)).then(
-        () => {
-          // Redirect. Next request will get the session from it's cookie
-          const res = new Response(null, {
-            status: 302,
-            headers: new Headers({
-              location: ctx.BASE_URL + `/account`,
-            }),
-          })
-          return res
-        },
-      )
+      return await store.set(ctx.state.REDIS_KEY, JSON.stringify(state))
+        .then(
+          () => {
+            // Redirect. Next request will get the session from it's cookie
+            const res = new Response(null, {
+              status: 302,
+              headers: new Headers({
+                location: ctx.state.BASE_URL + `/account`,
+              }),
+            })
+            return res
+          },
+        )
     }
   },
 }

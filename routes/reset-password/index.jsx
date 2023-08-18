@@ -10,7 +10,7 @@ export const handler = {
     return ctx.render({ ...ctx.state, code })
   },
   POST: async (req, ctx) => {
-    const reset = await fetch(`${ctx.API_URL}/auth/reset-password`, {
+    const reset = await fetch(`${ctx.state.API_URL}/auth/reset-password`, {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())

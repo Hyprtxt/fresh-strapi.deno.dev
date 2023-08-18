@@ -8,7 +8,7 @@ export const handler = {
     return ctx.render({ ...ctx.state })
   },
   POST: async (req, ctx) => {
-    const login = await fetch(`${ctx.API_URL}/auth/forgot-password`, {
+    const login = await fetch(`${ctx.state.API_URL}/auth/forgot-password`, {
       method: "POST",
       body: await req.formData(),
     }).then(async (res) => await res.json())

@@ -11,7 +11,7 @@ import {
   REDIS_PORT,
 } from "@/utils/config.js"
 
-const store = await redis.connect({
+export const store = await redis.connect({
   password: REDIS_PASS,
   hostname: REDIS_HOST,
   port: REDIS_PORT,
@@ -33,7 +33,7 @@ const createSession = async () => {
 
 const setupNewSession = async (req, ctx) => {
   ctx.state = await createSession()
-  ctx.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME])
+  ctx.state.REDIS_KEY = REDIS_KEY(ctx.state[COOKIE_NAME])
   setupStateHook(req, ctx)
   const resp = await ctx.next()
   setCookie(resp.headers, {
@@ -50,7 +50,7 @@ const setupSession = async (req, ctx) => {
     const session = await store.get(REDIS_KEY(cookies[COOKIE_NAME]))
     if (session) {
       ctx.state = JSON.parse(session)
-      ctx.REDIS_KEY = REDIS_KEY(cookies[COOKIE_NAME])
+      ctx.state.REDIS_KEY = REDIS_KEY(cookies[COOKIE_NAME])
     } else {
       return await setupNewSession(req, ctx)
     }
@@ -61,9 +61,12 @@ const setupSession = async (req, ctx) => {
   return await ctx.next()
 }
 
-const setupStateHook = (_req, _ctx) => {
+const setupStateHook = (_req, ctx) => {
   // const url = new URL(req.url)
   // ctx.state.url = url
+  ctx.state.API_URL = API_URL
+  ctx.state.BASE_URL = BASE_URL
+  ctx.state.DENO_ENV = DENO_ENV
   return
 }
 
@@ -88,11 +91,8 @@ export async function handler(req, ctx) {
     pathname.startsWith("/forgot-password/") ||
     pathname.startsWith("/account/")
   ) {
-    console.log(ctx, "THATH")
-    ctx.API_URL = API_URL
-    ctx.BASE_URL = BASE_URL
-    ctx.DENO_ENV = DENO_ENV
-    ctx.store = store
+    // ctx.store = store
+    // console.log(ctx)
     resp = await setupSession(req, ctx)
   } else {
     resp = await ctx.next()
