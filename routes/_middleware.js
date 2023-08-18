@@ -88,6 +88,7 @@ export async function handler(req, ctx) {
     pathname.startsWith("/forgot-password/") ||
     pathname.startsWith("/account/")
   ) {
+    console.log(ctx, "THATH")
     ctx.API_URL = API_URL
     ctx.BASE_URL = BASE_URL
     ctx.DENO_ENV = DENO_ENV

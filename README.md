@@ -79,7 +79,7 @@ deno task start
 
 This will watch the project directory and restart as necessary.
 
-## ~A Short~ History
+## ~~A Short~~ History
 
 I really like Deno and I was using it in 2021 because I was learning things
 about the browser from it. I made my own system for serving websites and I
