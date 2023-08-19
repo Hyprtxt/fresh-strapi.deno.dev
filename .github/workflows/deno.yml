@@ -10,8 +10,8 @@ on:
     branches: ["main","test"]
 
 permissions:
-  id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
-  contents: read
+  id-token: write # Needed for auth with Deno Deploy
+  contents: read # Needed to clone the repository
 
 jobs:
   test:
@@ -31,7 +31,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.30.3
+          deno-version: v1.x
       
       - name: Verify formatting
         run: deno fmt --check
@@ -57,10 +57,12 @@ jobs:
 
       - name: Run tests
         run: deno test -A
+    
+      - name: Build step
+          run: "deno task build" # 📝 Update the build command(s) if necessary
 
-      # - name: Deploy to Deno Deploy - fresh-strapi.deno.dev
-      #   uses: denoland/deployctl@v1
-      #   with:
-      #     project: fresh-strapi # the name of the project on Deno Deploy
-      #     entrypoint: main.ts # the entrypoint to deploy
-      #     import-map: import_map.json # because fresh needs this
+      - name: Upload to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: "fresh-strapi" # 📝 Update the deploy project name if necessary
+          entrypoint: "./main.ts" # 📝 Update the entrypoint if necessary
