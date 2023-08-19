@@ -1,8 +1,8 @@
 import { assertEquals } from "$std/testing/asserts.ts"
 import { freshPuppetTestWrapper } from "fresh_marionette"
-import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+import { BASE_URL, CURRENT_ENV } from "@/utils/config.js"
 
-const puppet_config = DENO_ENV === "development"
+const puppet_config = CURRENT_ENV === "development"
   ? { headless: false, defaultViewport: null }
   : { headless: true }
 

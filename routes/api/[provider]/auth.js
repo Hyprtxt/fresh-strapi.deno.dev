@@ -13,7 +13,6 @@ export const handler = {
       `${ctx.state.API_URL}/auth/${provider}/callback${search}`,
     ).then(async (res) => {
       const body = await res.json()
-      console.log(body, "yep")
       if (res.status !== 200) {
         return { unauthorized: true }
       }

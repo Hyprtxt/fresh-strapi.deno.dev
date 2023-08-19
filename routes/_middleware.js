@@ -5,7 +5,7 @@ import * as redis from "redis"
 import {
   API_URL,
   BASE_URL,
-  DENO_ENV,
+  CURRENT_ENV,
   REDIS_HOST,
   REDIS_PASS,
   REDIS_PORT,
@@ -66,7 +66,7 @@ const setupStateHook = (_req, ctx) => {
   // ctx.state.url = url
   ctx.state.API_URL = API_URL
   ctx.state.BASE_URL = BASE_URL
-  ctx.state.DENO_ENV = DENO_ENV
+  ctx.state.CURRENT_ENV = CURRENT_ENV
   return
 }
 
@@ -91,8 +91,6 @@ export async function handler(req, ctx) {
     pathname.startsWith("/forgot-password/") ||
     pathname.startsWith("/account/")
   ) {
-    // ctx.store = store
-    // console.log(ctx)
     resp = await setupSession(req, ctx)
   } else {
     resp = await ctx.next()

@@ -1,7 +1,7 @@
 import Nav from "@/islands/Nav.jsx"
 import { CSS, render } from "gfm"
 import { asset, Head } from "$fresh/runtime.ts"
-import { DENO_ENV } from "@/utils/config.js"
+import { CURRENT_ENV } from "@/utils/config.js"
 
 export const handler = {
   GET: async (_req, ctx) => {
@@ -144,7 +144,7 @@ export const Layout = ({ children, data }) => {
     <>
       <Nav />
       {children}
-      {DENO_ENV === "development"
+      {CURRENT_ENV === "development"
         ? <pre>{JSON.stringify(data, null, 2)}</pre>
         : ""}
     </>

@@ -8,7 +8,7 @@ const RAW_ENV = Object.assign(Deno.env.toObject(), await load())
 const ENV = cleanEnv(RAW_ENV, {
   API_URL: url(),
   BASE_URL: url(),
-  DENO_ENV: str({ choices: ["development", "testing", "production"] }),
+  CURRENT_ENV: str({ choices: ["development", "testing", "production"] }),
   REDIS_PASS: str(),
   REDIS_HOST: host(),
   REDIS_PORT: port(),
@@ -17,7 +17,7 @@ const ENV = cleanEnv(RAW_ENV, {
 export const {
   API_URL,
   BASE_URL,
-  DENO_ENV,
+  CURRENT_ENV,
   REDIS_HOST,
   REDIS_PASS,
   REDIS_PORT,
