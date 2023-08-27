@@ -76,6 +76,10 @@ Use this command to get the secret contents
 base64 -i .env.github | pbcopy
 ```
 
+Configure a "Repository Secret" for GitHub Actions:
+
+https://github.com/Hyprtxt/fresh-strapi.deno.dev/settings/secrets/actions
+
 secret name should be `ENV_GITHUB_ACTIONS`
 
 ## Fresh Usage
@@ -104,6 +108,10 @@ code that was common across all 3 sites to create a starting point for future
 projects. Any projects that want to use a Strapi installation to do JWT sessions
 securely right from the start. And OAuth2 too!
 
+Now I'm just trying to keep it updated and upgraded to the latest versions of
+Fresh. I also need to upgrade puppeteer to use the version from NPM instead of
+the deno port that is pinned to an old version.
+
 ### Things here that you don't get from Fresh alone:
 
 - Redis Session Middleware
@@ -119,3 +127,6 @@ securely right from the start. And OAuth2 too!
 
 https://videopoker.academy is the another website in the Fresh-Strapi family.
 One that doesn't use Strapi.
+
+https://kv-strapi.deno.dev/ Similar Auth ideas, but using Fresh Sessions instead
+of Redis: https://github.com/digitaldesigndj/kv-strapi
