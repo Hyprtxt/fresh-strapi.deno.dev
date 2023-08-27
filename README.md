@@ -106,8 +106,7 @@ securely right from the start. And OAuth2 too!
 
 ### Things here that you don't get from Fresh alone:
 
-- ~~Redis Session Middleware~~
-- Fresh Session Middleware
+- Redis Session Middleware
 - Global Config via .env
 - Test Harness
 - Puppeteer Test Harness
