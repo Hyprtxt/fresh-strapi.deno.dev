@@ -31,6 +31,12 @@ code .env
 
 Add your secrets on Deno Deploy, it's really easy1!!
 
+There is a build step now, it makes your fresh sites lightning fast. It uses
+GitHub Actions and is
+[compatible with Deno Deploy](https://fresh.deno.dev/docs/concepts/ahead-of-time-builds)
+
+#### Self Hosted
+
 For self hosted, use the run task `deno task run`, to run the project in
 production mode. I still use `pm2` to monitor my Deno processes in production. I
 also use nginx as my webserver and configure proxies to the individual
@@ -52,6 +58,9 @@ deno test -A
 
 You'll need to install Chromium first, running the test suite will provide the
 install command if it is not found.
+
+The test runner is called
+[Fresh Marionette](https://deno.land/x/fresh_marionette@v2.0.1)
 
 ## Github Actions
 
@@ -97,7 +106,8 @@ securely right from the start. And OAuth2 too!
 
 ### Things here that you don't get from Fresh alone:
 
-- Redis Session Middleware
+- ~~Redis Session Middleware~~
+- Fresh Session Middleware
 - Global Config via .env
 - Test Harness
 - Puppeteer Test Harness

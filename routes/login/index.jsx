@@ -1,6 +1,6 @@
 import Login from "@/islands/Login.jsx"
 import { Layout } from "@/routes/index.jsx"
-import { asset, Head } from "$fresh/runtime.ts"
+// import { asset, Head } from "$fresh/runtime.ts"
 import { store } from "@/routes/_middleware.js"
 
 export const handler = {
