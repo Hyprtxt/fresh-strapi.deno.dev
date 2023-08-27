@@ -73,7 +73,7 @@ Runs `deno fmt` and the Puppeteer tests on Github Actions using a Linux Host.
 Use this command to get the secret contents
 
 ```
-base64 .env.github | pbcopy
+base64 -i .env.github | pbcopy
 ```
 
 secret name should be `ENV_GITHUB_ACTIONS`
