@@ -11,9 +11,7 @@
     "jsxImportSource": "preact"
   },
   "fmt": {
-    "options": {
-      "semiColons": false
-    },
+    "semiColons": false,
     "exclude": [
       "_fresh",
       "static/",
